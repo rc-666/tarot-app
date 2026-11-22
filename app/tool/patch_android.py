@@ -36,6 +36,16 @@ if "desugar_jdk_libs" not in s:
 else:
     print("already patched", f)
 
+# Make sure release builds use proguard-rules.pro (keep rules for WorkManager/Room).
+s = f.read_text()
+if "proguard-rules.pro" not in s:
+    rule = ('proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")' if is_kts
+            else "proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'")
+    s, n = re.subn(r"(release\s*\{)", r"\1\n            " + rule, s, count=1)
+    if n:
+        f.write_text(s)
+        print("release build uses proguard-rules.pro in", f)
+
 # Release lint check off: lint crashes inside webview_flutter_android (a dependency of
 # google_mobile_ads) with an internal NoSuchMethodError. Code analysis runs in `flutter analyze`.
 s = f.read_text()
