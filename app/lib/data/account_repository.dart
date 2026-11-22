@@ -19,7 +19,6 @@ class AccountException implements Exception {
 abstract class AccountApi {
   String? get userId;
   String? get email;
-  @override
   Future<Profile> signUpWithDraft({required String email, required String password, required ProfileDraft draft, required String phoneTz});
   Future<Profile> signIn(String email, String password);
   Future<void> sendReset(String email);
@@ -57,6 +56,7 @@ class SupabaseAccount implements AccountApi {
   String? get email => user?.email;
 
   /// 3a: creates the account and the profile from the onboarding draft. No email verification.
+  @override
   Future<Profile> signUpWithDraft({
     required String email,
     required String password,
