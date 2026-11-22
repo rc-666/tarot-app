@@ -4,6 +4,7 @@
 Patches the generated Gradle file for this app:
 - minSdk 24 (flutter_local_notifications 21+)
 - core library desugaring (needed by flutter_local_notifications)
+- release lint check off (lint crashes on a dependency; see below)
 Works with both build.gradle.kts (Flutter >= 3.29 default) and Groovy build.gradle. Safe to run twice.
 """
 import pathlib, re, sys
@@ -34,3 +35,12 @@ if "desugar_jdk_libs" not in s:
     print("patched", f)
 else:
     print("already patched", f)
+
+# Release lint check off: lint crashes inside webview_flutter_android (a dependency of
+# google_mobile_ads) with an internal NoSuchMethodError. Code analysis runs in `flutter analyze`.
+s = f.read_text()
+if "checkReleaseBuilds" not in s:
+    block = "lint {\n        checkReleaseBuilds = false\n    }" if is_kts else "lint {\n        checkReleaseBuilds false\n    }"
+    s = s.replace("android {", "android {\n    " + block, 1)
+    f.write_text(s)
+    print("release lint check disabled in", f)
