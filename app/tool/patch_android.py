@@ -2,7 +2,7 @@
 """Run once after `flutter create --platforms=android .` (Codemagic does it on every build).
 
 Patches the generated Gradle file for this app:
-- minSdk 23
+- minSdk 24 (flutter_local_notifications 21+)
 - core library desugaring (needed by flutter_local_notifications)
 Works with both build.gradle.kts (Flutter >= 3.29 default) and Groovy build.gradle. Safe to run twice.
 """
@@ -18,7 +18,7 @@ is_kts = f.suffix == ".kts"
 
 if "desugar_jdk_libs" not in s:
     # minSdk
-    s = re.sub(r"minSdk\s*=?\s*flutter\.minSdkVersion", "minSdk = 23" if is_kts else "minSdk 23", s)
+    s = re.sub(r"minSdk\s*=?\s*flutter\.minSdkVersion", "minSdk = 24" if is_kts else "minSdk 24", s)
     # desugaring flag inside compileOptions
     flag = "isCoreLibraryDesugaringEnabled = true" if is_kts else "coreLibraryDesugaringEnabled true"
     s, n = re.subn(r"compileOptions\s*\{", "compileOptions {\n        " + flag, s, count=1)

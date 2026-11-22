@@ -60,7 +60,7 @@ Tests: `cd supabase/functions && npm install && npm test`; SQL tests: `supabase/
 - Cards 2 and 3 are calculated for **06:00 local time** and stay fixed for the day. The cron runs at 05:00 UTC (retry at 06:00), before 06:00 in Fernando de Noronha.
 - Engine: Astronomy Engine (MIT), not Swiss Ephemeris, so there's no AGPL licence question.
 
-## 2. App (Flutter ≥ 3.27)
+## 2. App (Flutter ≥ 3.38)
 
 ```
 cd app
@@ -71,7 +71,7 @@ flutter analyze && flutter test
 flutter run --dart-define=SUPABASE_URL=https://<ref>.supabase.co --dart-define=SUPABASE_ANON_KEY=<anon-key>
 ```
 
-After `flutter create`, run `python3 tool/patch_android.py` (minSdk 23 + core library desugaring for flutter_local_notifications). Codemagic does both steps on every build.
+After `flutter create`, run `python3 tool/patch_android.py` (minSdk 24 + core library desugaring for flutter_local_notifications). Codemagic does both steps on every build.
 Without `SUPABASE_URL`/`SUPABASE_ANON_KEY` (or with `--dart-define=DEMO=true`) the app runs in demo mode.
 Change `com.example` to the real application id once the app name is chosen.
 

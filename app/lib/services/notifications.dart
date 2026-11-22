@@ -25,8 +25,7 @@ class NotificationService {
     tzdata.initializeTimeZones();
     String name;
     try {
-      // flutter_timezone 4.x returns a String; 5.x returns TimezoneInfo (use `.identifier`).
-      name = await FlutterTimezone.getLocalTimezone();
+      name = (await FlutterTimezone.getLocalTimezone()).identifier;
     } catch (_) {
       name = 'America/Sao_Paulo';
     }
@@ -38,7 +37,7 @@ class NotificationService {
     }
     tz.setLocalLocation(_local);
     await _plugin.initialize(
-      const InitializationSettings(android: AndroidInitializationSettings('@mipmap/ic_launcher')),
+      settings: const InitializationSettings(android: AndroidInitializationSettings('@mipmap/ic_launcher')),
       onDidReceiveNotificationResponse: (_) => _openHome.value++,
     );
     final launch = await _plugin.getNotificationAppLaunchDetails();
@@ -78,9 +77,12 @@ class NotificationService {
         final at = tz.TZDateTime(_local, now.year, now.month, now.day + i, morningHour);
         if (!at.isAfter(now)) continue;
         await _plugin.zonedSchedule(
-          _morningBase + i, text.morningTitle, text.morningBody, at, details,
+          id: _morningBase + i,
+          title: text.morningTitle,
+          body: text.morningBody,
+          scheduledDate: at,
+          notificationDetails: details,
           androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-          uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
         );
       }
     }
@@ -91,9 +93,12 @@ class NotificationService {
           .toList();
       for (var i = 0; i < picks.length; i++) {
         await _plugin.zonedSchedule(
-          _moodBase + i, text.moodTitle, text.moodBody, tz.TZDateTime.from(picks[i].at, _local), details,
+          id: _moodBase + i,
+          title: text.moodTitle,
+          body: text.moodBody,
+          scheduledDate: tz.TZDateTime.from(picks[i].at, _local),
+          notificationDetails: details,
           androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-          uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
         );
       }
     }

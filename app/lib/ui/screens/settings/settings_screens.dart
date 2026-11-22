@@ -81,7 +81,7 @@ class _SettingsSheetState extends ConsumerState<_SettingsSheet> {
           decoration: const BoxDecoration(border: Border(bottom: BorderSide(color: AppColors.divider))),
           child: Row(children: [
             Expanded(child: Text(label, style: AppText.bodyLarge)),
-            Switch(value: value, onChanged: onChanged, activeColor: AppColors.primary),
+            Switch(value: value, onChanged: onChanged, activeThumbColor: AppColors.primary),
           ]),
         );
 
