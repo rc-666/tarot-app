@@ -17,8 +17,9 @@ final _emailRe = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]{2,}$');
 bool validEmail(String s) => _emailRe.hasMatch(s.trim());
 
 class _PasswordField extends StatefulWidget {
-  const _PasswordField({required this.controller, required this.hint, this.error, this.enabled = true, this.onChanged});
+  const _PasswordField({required this.controller, required this.hint, this.error, this.enabled = true, this.onChanged, this.focusNode});
   final TextEditingController controller;
+  final FocusNode? focusNode;
   final String hint;
   final String? error;
   final bool enabled;
@@ -37,6 +38,7 @@ class _PasswordFieldState extends State<_PasswordField> {
       error: widget.error,
       child: TextField(
         controller: widget.controller,
+        focusNode: widget.focusNode,
         enabled: widget.enabled,
         obscureText: !_show,
         autofillHints: const [AutofillHints.password],
@@ -109,6 +111,7 @@ class _SaveProfileScreenState extends ConsumerState<SaveProfileScreen> {
   final _email = TextEditingController();
   final _pw = TextEditingController();
   final _emailFocus = FocusNode();
+  final _pwFocus = FocusNode();
   bool _adult = false, _saving = false, _emailTouched = false, _pwTouched = false;
   SaveError? _error;
 
@@ -118,6 +121,9 @@ class _SaveProfileScreenState extends ConsumerState<SaveProfileScreen> {
     _emailFocus.addListener(() {
       if (!_emailFocus.hasFocus) setState(() => _emailTouched = true); // validate on blur
     });
+    _pwFocus.addListener(() {
+      if (!_pwFocus.hasFocus) setState(() => _pwTouched = true); // 3d: say why Save is disabled
+    });
   }
 
   @override
@@ -125,6 +131,7 @@ class _SaveProfileScreenState extends ConsumerState<SaveProfileScreen> {
     _email.dispose();
     _pw.dispose();
     _emailFocus.dispose();
+    _pwFocus.dispose();
     super.dispose();
   }
 
@@ -184,18 +191,32 @@ class _SaveProfileScreenState extends ConsumerState<SaveProfileScreen> {
           const SizedBox(height: AppSpace.md),
           _PasswordField(
             controller: _pw,
+            focusNode: _pwFocus,
             hint: t.passwordHint,
             error: pwErr,
             enabled: !_saving,
-            onChanged: (_) => setState(() => _pwTouched = _pw.text.length >= 8 || _pwTouched),
+            onChanged: (_) => setState(() {}),
           ),
           const SizedBox(height: AppSpace.sm),
           InkWell(
-            onTap: _saving ? null : () => setState(() => _adult = !_adult),
+            onTap: _saving
+                ? null
+                : () {
+                    FocusScope.of(context).unfocus(); // runs the field checks, so a short password is explained
+                    setState(() => _adult = !_adult);
+                  },
             child: SizedBox(
               height: 48,
               child: Row(children: [
-                Checkbox(value: _adult, onChanged: _saving ? null : (v) => setState(() => _adult = v ?? false)),
+                Checkbox(
+                  value: _adult,
+                  onChanged: _saving
+                      ? null
+                      : (v) {
+                          FocusScope.of(context).unfocus();
+                          setState(() => _adult = v ?? false);
+                        },
+                ),
                 Expanded(child: Text(t.adultCheck, style: AppText.bodyLarge)),
               ]),
             ),
