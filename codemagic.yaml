@@ -21,7 +21,7 @@ workflows:
         script: flutter pub get
       - name: Analyze (report only; first builds will list fixes)
         working_directory: app
-        script: flutter analyze --no-fatal-infos --no-fatal-warnings > ../analyze.txt 2>&1 || true
+        script: flutter analyze --no-fatal-infos --no-fatal-warnings 2>&1 | tee ../analyze.txt || true
       - name: Unit tests
         working_directory: app
         script: flutter test
