@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delete my account</title>
+<meta name="description" content="How to delete your account and data.">
+<meta name="theme-color" content="#161B26">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23161B26'/%3E%3Cpath d='M15 3a9 9 0 1 0 0 18a7 9 0 0 1 0-18z' fill='%23C9A96E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&amp;family=Noto+Serif:wght@400&amp;family=Noto+Sans:wght@400;600&amp;display=swap">
+<style>
+html{background:#161B26}
+body{margin:0;background:#161B26;color:#EDE8DF;font-family:'Noto Sans',system-ui,sans-serif}
+a{color:#C9A96E}a:hover{color:#EDE8DF}
+:focus-visible{outline:2px solid #C9A96E;outline-offset:3px;border-radius:4px}
+header,main,footer{max-width:760px;margin:0 auto;padding:0 24px}
+header{padding-top:24px;padding-bottom:24px;display:flex;align-items:center;gap:10px}
+header a{display:inline-flex;align-items:center;gap:10px;min-height:48px;text-decoration:none;font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:600;color:#EDE8DF}
+h1{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(34px,6vw,46px);line-height:1.15;margin:24px 0 8px}
+h2{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:26px;line-height:1.25;margin:40px 0 8px}
+p,li{font-family:'Noto Serif',Georgia,serif;font-size:18px;line-height:1.65;color:#EDE8DF}
+.muted{color:#A9B0BD;font-family:'Noto Sans',system-ui,sans-serif;font-size:16px}
+.draft{border:1px solid #C9A96E;border-radius:8px;padding:12px 16px;color:#C9A96E;font-size:16px;margin:16px 0}
+.panel{background:#1F2633;border-radius:12px;padding:24px;margin:24px 0}
+ol{padding-left:22px}
+footer{border-top:1px solid #323B4D;margin-top:64px;padding-top:24px;padding-bottom:48px;display:flex;flex-wrap:wrap;gap:8px 28px}
+footer a{min-height:48px;display:inline-flex;align-items:center;color:#EDE8DF;text-decoration:none;font-size:16px}
+</style>
+</head>
+<body>
+<header><a href="index.html"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3a9 9 0 1 0 0 18a7 9 0 0 1 0-18z" fill="#C9A96E"/></svg><span data-app-name>[App name]</span></a></header>
+<main>
+<h1>Delete my account</h1>
+<p>You can delete your account and all its data at any time. Deleting removes your profile, birth details, readings and ratings. It cannot be undone.</p>
+
+<div class="panel">
+<h2 style="margin-top:0">In the app (fastest)</h2>
+<ol>
+<li>Open <span data-app-name>[App name]</span>.</li>
+<li>On Home, tap the settings icon (top right).</li>
+<li>Tap <strong>Delete account</strong>, then confirm.</li>
+</ol>
+</div>
+
+<div class="panel">
+<h2 style="margin-top:0">Without the app</h2>
+<p>Email <a href="mailto:hello@example.com?subject=Delete%20my%20account" data-contact>hello@example.com</a> from the address you signed up with, with the subject "Delete my account". We delete your account within 30 days and reply to confirm.</p>
+</div>
+
+<p class="muted">What is deleted: your profile (name, birth date, time and place), email and password, focus topics, readings and ratings. What is kept: nothing linked to you. Anonymous usage counts without your identity may remain in analytics.</p>
+</main>
+<footer aria-label="Footer"><a href="index.html">Home</a><a href="privacy.html">Privacy policy</a><a href="delete-account.html">Delete my account</a><a href="mailto:hello@example.com" data-contact>hello@example.com</a></footer>
+<script>
+const SITE = { appName: '[App name]', contact: 'hello@example.com' }; // keep in sync with index.html
+document.querySelectorAll('[data-app-name]').forEach(e => e.textContent = SITE.appName);
+document.querySelectorAll('[data-contact]').forEach(e => { e.textContent = SITE.contact; e.href = 'mailto:' + SITE.contact + (e.search || ''); });
+</script>
+</body>
+</html>

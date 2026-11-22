@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#161B26"/>
+<rect x="32.5" y="32.5" width="1135" height="565" rx="8" fill="none" stroke="#323B4D"/>
+<g transform="translate(80 192) scale(1.0833333333333333)"><path d="M15 3 a9 9 0 1 0 0 18 a7 9 0 0 1 0 -18z" fill="#C9A96E"/></g>
+<text x="118" y="213" font-family="Playfair Display" font-weight="600" font-size="26" fill="#EDE8DF">[App name]</text>
+<text font-family="Playfair Display" font-weight="500" font-size="64" fill="#EDE8DF"><tspan x="80" y="298">Your sky today,</tspan><tspan x="80" y="367">in three cards.</tspan></text>
+<text x="80" y="430" font-family="Noto Sans" font-size="24" fill="#A9B0BD">Free daily tarot from the real sky · Android</text>
+<rect x="634.5" y="189.5" width="149" height="251" rx="6" fill="#1F2633" stroke="#C9A96E"/>
+<rect x="639.5" y="194.5" width="139" height="211" rx="3" fill="none" stroke="#323B4D"/>
+<g transform="translate(660.00 255.45) scale(1.4848)"><path d="M10 22 h12 l-2 12 h-8z M27 18 h12 l-2 12 h-8z M44 22 h12 l-2 12 h-8z M16 34 v8 M33 30 v12 M50 34 v8 M12 44 h44" fill="none" stroke="#C9A96E" stroke-width="1.4" stroke-linejoin="round"/></g>
+<text x="709.0" y="427" text-anchor="middle" font-family="Noto Sans" font-weight="600" font-size="17" fill="#EDE8DF">Three of Cups</text><rect x="802.5" y="189.5" width="149" height="251" rx="6" fill="#1F2633" stroke="#C9A96E"/>
+<rect x="807.5" y="194.5" width="139" height="211" rx="3" fill="none" stroke="#323B4D"/>
+<g transform="translate(828.00 255.45) scale(1.4848)"><circle cx="33" cy="24" r="11" fill="none" stroke="#C9A96E" stroke-width="1.4"/><path d="M33 35 v14 M26 43 h14" stroke="#C9A96E" stroke-width="1.4" fill="none"/></g>
+<text x="877.0" y="427" text-anchor="middle" font-family="Noto Sans" font-weight="600" font-size="17" fill="#EDE8DF">The Empress</text><rect x="970.5" y="189.5" width="149" height="251" rx="6" fill="#1F2633" stroke="#C9A96E"/>
+<rect x="975.5" y="194.5" width="139" height="211" rx="3" fill="none" stroke="#323B4D"/>
+<g transform="translate(996.00 255.45) scale(1.4848)"><circle cx="33" cy="30" r="15" fill="none" stroke="#C9A96E" stroke-width="1.4"/><circle cx="33" cy="30" r="3" fill="#C9A96E"/><line x1="33" y1="30" x2="48.00" y2="30.00" stroke="#C9A96E" stroke-width="1"/><line x1="33" y1="30" x2="40.50" y2="42.99" stroke="#C9A96E" stroke-width="1"/><line x1="33" y1="30" x2="25.50" y2="42.99" stroke="#C9A96E" stroke-width="1"/><line x1="33" y1="30" x2="18.00" y2="30.00" stroke="#C9A96E" stroke-width="1"/><line x1="33" y1="30" x2="25.50" y2="17.01" stroke="#C9A96E" stroke-width="1"/><line x1="33" y1="30" x2="40.50" y2="17.01" stroke="#C9A96E" stroke-width="1"/></g>
+<text x="1045.0" y="427" text-anchor="middle" font-family="Noto Sans" font-weight="600" font-size="17" fill="#EDE8DF">The Chariot</text>
+</svg>
