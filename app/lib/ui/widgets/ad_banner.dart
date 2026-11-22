@@ -46,7 +46,7 @@ class _AdBannerState extends State<AdBanner> {
     if (!widget.enabled || _requested) return;
     _requested = true;
     final width = MediaQuery.sizeOf(context).width.truncate();
-    final size = await AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(width);
+    final size = await AdSize.getLargeAnchoredAdaptiveBannerAdSize(width);
     if (size == null || !mounted) return;
     final ad = BannerAd(
       adUnitId: AppConfig.admobBannerUnit,

@@ -20,7 +20,7 @@ Future<void> main() async {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge); // draw under status and gesture bars
 
   if (AppConfig.hasBackend) {
-    await Supabase.initialize(url: AppConfig.supabaseUrl, anonKey: AppConfig.supabaseAnonKey);
+    await Supabase.initialize(url: AppConfig.supabaseUrl, publishableKey: AppConfig.supabaseAnonKey);
   }
   final prefs = await SharedPreferences.getInstance();
   final store = LocalStore(prefs);

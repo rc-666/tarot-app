@@ -81,8 +81,8 @@ class ClockNotifier extends Notifier<DateTime> with WidgetsBindingObserver {
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState s) {
-    if (s == AppLifecycleState.resumed) state = DateTime.now();
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) this.state = DateTime.now();
   }
 }
 

@@ -113,14 +113,13 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
   }
 
   Future<void> _readFull() async {
+    final reduce = MediaQuery.of(context).disableAnimations;
     setState(() => _showFull = true);
     ref.read(analyticsProvider).event(Ev.readingOpened);
-    await Future<void>.delayed(const Duration(milliseconds: 50));
+    await Future<void>.delayed(const Duration(milliseconds: 50)); // let the full reading lay out
     final ctx = _openingKey.currentContext;
-    if (ctx != null && mounted) {
-      final reduce = MediaQuery.of(context).disableAnimations;
-      await Scrollable.ensureVisible(ctx, duration: reduce ? Duration.zero : AppMotion.readScroll, curve: Curves.easeOut);
-    }
+    if (ctx == null || !ctx.mounted) return;
+    await Scrollable.ensureVisible(ctx, duration: reduce ? Duration.zero : AppMotion.readScroll, curve: Curves.easeOut);
   }
 
   @override

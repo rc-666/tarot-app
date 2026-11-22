@@ -1,11 +1,11 @@
 import 'models.dart';
 
-/// The explanation library for one language (assets/library/<lang>.json, or a newer copy from Storage).
+/// The explanation library for one language (`assets/library/<lang>.json`, or a newer copy from Storage).
 /// Keys in `texts` (most specific first):
-///   mood.<card>.<topic>            mood.<card>
-///   influence.<card>.<upright|reversed>.<topic>   influence.<card>.<upright|reversed>
-///   advice.<card>.<topic>          advice.<card>
-///   closing.<adviceCard>.<topic>   closing.<topic>
+/// - `mood.<card>.<topic>`, then `mood.<card>`
+/// - `influence.<card>.<upright|reversed>.<topic>`, then `influence.<card>.<upright|reversed>`
+/// - `advice.<card>.<topic>`, then `advice.<card>`
+/// - `closing.<adviceCard>.<topic>`, then `closing.<topic>`
 class Library {
   final int version;
   final String language;

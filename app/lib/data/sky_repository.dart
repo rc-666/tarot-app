@@ -85,11 +85,11 @@ class SkyRepository {
     if (fixed == null || mood == null) throw const CardsNotReady();
 
     final localShift = mood.at.add(utcOffset);
-    final shiftedToday = '${localShift.year.toString().padLeft(4, '0')}-${_2(localShift.month)}-${_2(localShift.day)}' == day;
+    final shiftedToday = '${localShift.year.toString().padLeft(4, '0')}-${_pad2(localShift.month)}-${_pad2(localShift.day)}' == day;
     return TodayCards(day: day, mood: mood, moodShiftedToday: shiftedToday, fixed: fixed);
   }
 
-  static String _2(int n) => n.toString().padLeft(2, '0');
+  static String _pad2(int n) => n.toString().padLeft(2, '0');
 }
 
 class CardsNotReady implements Exception {

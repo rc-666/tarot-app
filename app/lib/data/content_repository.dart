@@ -9,7 +9,7 @@ import '../domain/reading_assembler.dart';
 import 'local_store.dart';
 
 /// Explanation library: bundled copy first, newer copy from Storage when the version is higher.
-/// Storage layout (bucket `library`): manifest.json = {"en": 3, "pt": 2}, <lang>.json.
+/// Storage layout (bucket `library`): `manifest.json` = `{"en": 3, "pt": 2}`, `<lang>.json`.
 class LibraryRepository {
   LibraryRepository(this._store);
   final LocalStore _store;

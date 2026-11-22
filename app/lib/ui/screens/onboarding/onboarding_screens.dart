@@ -405,10 +405,12 @@ class _TimePlaceStepState extends ConsumerState<TimePlaceStep> {
     _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 200), () async {
       final r = await ref.read(placesProvider).search(v);
-      if (mounted) setState(() {
-        _results = r;
-        _searched = v.trim().length >= 2;
-      });
+      if (mounted) {
+        setState(() {
+          _results = r;
+          _searched = v.trim().length >= 2;
+        });
+      }
     });
   }
 

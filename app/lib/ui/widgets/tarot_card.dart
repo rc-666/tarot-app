@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../theme/app_theme.dart';
 
-/// Static card face. Art comes from assets/cards/<id>.webp (Rider–Waite 1909 scans, to be supplied);
+/// Static card face. Art comes from `assets/cards/<id>.webp` (Rider–Waite 1909 scans, to be supplied);
 /// until then a placeholder frame is drawn, as in the lo-fi designs.
 class CardFace extends StatelessWidget {
   const CardFace({super.key, required this.width, this.cardId, this.name, this.reversed = false, this.showName = true});
