@@ -1,0 +1,18 @@
+# name	region	lat	lon	tz  (SAMPLE: generate the full list with tool/build_places.py)
+São Paulo	São Paulo, Brazil	-23.5475	-46.63611	America/Sao_Paulo
+São Paulo de Olivença	Amazonas, Brazil	-3.37833	-68.8725	America/Manaus
+São Pedro	São Paulo, Brazil	-22.54833	-47.91389	America/Sao_Paulo
+Rio de Janeiro	Rio de Janeiro, Brazil	-22.90278	-43.2075	America/Sao_Paulo
+Belo Horizonte	Minas Gerais, Brazil	-19.92083	-43.93778	America/Sao_Paulo
+Salvador	Bahia, Brazil	-12.97111	-38.51083	America/Bahia
+Fortaleza	Ceará, Brazil	-3.71722	-38.54306	America/Fortaleza
+Brasília	Federal District, Brazil	-15.77972	-47.92972	America/Sao_Paulo
+Manaus	Amazonas, Brazil	-3.10194	-60.025	America/Manaus
+Curitiba	Paraná, Brazil	-25.42778	-49.27306	America/Sao_Paulo
+Recife	Pernambuco, Brazil	-8.05389	-34.88111	America/Recife
+Porto Alegre	Rio Grande do Sul, Brazil	-30.03306	-51.23	America/Sao_Paulo
+Belém	Pará, Brazil	-1.45583	-48.50444	America/Belem
+Rio Branco	Acre, Brazil	-9.97472	-67.81	America/Rio_Branco
+Fernando de Noronha	Pernambuco, Brazil	-3.85	-32.41667	America/Noronha
+Ciudad de México	Mexico City, Mexico	19.42847	-99.12766	America/Mexico_City
+Lisboa	Lisbon, Portugal	38.71667	-9.13333	Europe/Lisbon

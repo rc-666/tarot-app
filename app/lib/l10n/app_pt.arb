@@ -1,0 +1,4 @@
+{
+  "@@locale": "pt",
+  "@@x-note": "Empty on purpose: Brazilian Portuguese strings come from the translation agent. Until then gen-l10n falls back to the English template."
+}

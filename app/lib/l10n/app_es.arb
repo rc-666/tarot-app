@@ -1,0 +1,4 @@
+{
+  "@@locale": "es",
+  "@@x-note": "Empty on purpose: Spanish strings come from the translation agent. Until then gen-l10n falls back to the English template."
+}

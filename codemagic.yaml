@@ -1,0 +1,59 @@
+# Codemagic cloud build: produces an installable demo APK (no backend needed).
+# Connect this GitHub repo in Codemagic, pick the "Android demo APK" workflow, press Start new build.
+# Download the APK from the build's Artifacts and upload it to appetize.io to run it in the browser.
+workflows:
+  android-demo:
+    name: Android demo APK
+    max_build_duration: 40
+    instance_type: mac_mini_m2        # included in the free tier
+    environment:
+      flutter: stable
+      java: 17
+    scripts:
+      - name: Create the Android shell (keeps lib/ and our AndroidManifest.xml)
+        working_directory: app
+        script: |
+          flutter create --platforms=android --org com.example --project-name tarot_app .
+          rm -f test/widget_test.dart
+          python3 tool/patch_android.py
+      - name: Get packages
+        working_directory: app
+        script: flutter pub get
+      - name: Analyze (report only; first builds will list fixes)
+        working_directory: app
+        script: flutter analyze --no-fatal-infos --no-fatal-warnings > ../analyze.txt 2>&1 || true
+      - name: Unit tests
+        working_directory: app
+        script: flutter test
+        ignore_failure: true
+      - name: Build demo APK
+        working_directory: app
+        script: flutter build apk --release --dart-define=DEMO=true
+    artifacts:
+      - app/build/app/outputs/flutter-apk/app-release.apk
+      - analyze.txt
+
+  android-real:
+    name: Android APK (Supabase)
+    max_build_duration: 40
+    instance_type: mac_mini_m2
+    environment:
+      flutter: stable
+      java: 17
+      groups:
+        - supabase                     # add SUPABASE_URL and SUPABASE_ANON_KEY in Codemagic > Environment variables
+    scripts:
+      - name: Create the Android shell
+        working_directory: app
+        script: |
+          flutter create --platforms=android --org com.example --project-name tarot_app .
+          rm -f test/widget_test.dart
+          python3 tool/patch_android.py
+      - name: Get packages
+        working_directory: app
+        script: flutter pub get
+      - name: Build APK
+        working_directory: app
+        script: flutter build apk --release --dart-define=SUPABASE_URL=$SUPABASE_URL --dart-define=SUPABASE_ANON_KEY=$SUPABASE_ANON_KEY
+    artifacts:
+      - app/build/app/outputs/flutter-apk/app-release.apk

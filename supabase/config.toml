@@ -1,0 +1,19 @@
+# Supabase CLI config (local dev). Written by hand: compare with `supabase init` output on first setup.
+project_id = "tarot-app"
+
+[auth]
+site_url = "https://example.com"          # TODO: landing-page site
+additional_redirect_urls = ["tarotapp://auth-callback"]   # deep link for password reset (3l)
+enable_signup = true
+minimum_password_length = 8
+
+[auth.email]
+enable_signup = true
+enable_confirmations = false              # design: no email verification at sign-up
+max_frequency = "60s"                     # matches 3k "send again after 60 s"
+
+[functions.compute-sky]
+verify_jwt = false                        # checked inside: service-role key only
+
+[functions.delete-account]
+verify_jwt = true
