@@ -15,7 +15,7 @@ class CardFace extends StatelessWidget {
   final String? name; // translated card name; shown on full-size cards as "THE SUN."
   final bool reversed;
 
-  static const _w = 240.0, _h = 403.0;
+  static const _w = 240.0; // design grid width (card is 240 × 403)
   static bool isThumb(double width) => width < 120;
 
   /// Images the reveal needs, decoded ahead so the flip never waits (spec: precacheImage).
