@@ -1,4 +1,311 @@
 {
   "@@locale": "pt",
-  "@@x-note": "Empty on purpose: Brazilian Portuguese strings come from the translation agent. Until then gen-l10n falls back to the English template."
+  "stepOf": "Etapa {step} de {total}",
+  "@stepOf": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "back": "Voltar",
+  "next": "Avançar",
+  "continueLabel": "Continuar",
+  "save": "Salvar",
+  "tryAgain": "Tentar de novo",
+  "close": "Fechar",
+  "langTitle": "Escolha seu idioma",
+  "langBody": "Escolhemos este idioma com base no seu celular. Você pode mudar depois.",
+  "langFromPhone": "Idioma do celular",
+  "nameTitle": "Como podemos chamar você?",
+  "nameLabel": "Nome",
+  "nameHint": "Seu primeiro nome",
+  "birthDateTitle": "Quando você nasceu?",
+  "birthDateBody": "Seu signo e sua carta vêm da sua data de nascimento.",
+  "day": "Dia",
+  "month": "Mês",
+  "year": "Ano",
+  "signRewardTitle": "Você é de {sign}.",
+  "@signRewardTitle": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "signRewardBody": "Sua carta é {card}: {meaning}",
+  "@signRewardBody": {
+    "placeholders": {
+      "card": {
+        "type": "String"
+      },
+      "meaning": {
+        "type": "String"
+      }
+    }
+  },
+  "timePlaceTitle": "Quando e onde você nasceu?",
+  "timePlaceBody": "Opcional. Deixa sua leitura mais precisa.",
+  "birthTime": "Hora de nascimento",
+  "dontKnow": "Não sei",
+  "notKnown": "Não informado",
+  "birthPlace": "Local de nascimento",
+  "placeHint": "Cidade",
+  "placeNoResults": "Nenhum lugar encontrado.",
+  "placeNoResultsBody": "Confira a grafia ou tente uma cidade próxima.",
+  "dontKnowPlace": "Não sei onde nasci",
+  "topicsTitle": "O que mais importa para você agora?",
+  "topicsBody": "Escolha 1 ou 2. Você pode mudar depois.",
+  "topicsLimit": "Você pode escolher até 2.",
+  "seeMyCards": "Ver minhas cartas",
+  "topic_love": "Amor e casamento",
+  "topic_family": "Família e filhos",
+  "topic_money": "Dinheiro e trabalho",
+  "topic_health": "Saúde",
+  "topic_growth": "Crescimento pessoal",
+  "firstReadingTitle": "Aqui estão suas cartas de hoje.",
+  "readingTitle": "Suas cartas de hoje",
+  "tapToReveal": "Toque em cada carta para revelá-la",
+  "readingReady": "Sua leitura está pronta",
+  "revealedCount": "Reveladas: {n} de 3",
+  "@revealedCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "posMoodShort": "Humor",
+  "posInfluenceShort": "Influência",
+  "posAdviceShort": "Conselho",
+  "posMood": "Seu humor hoje",
+  "posInfluence": "O que está em jogo",
+  "posAdvice": "Seu conselho",
+  "reversed": "Invertida",
+  "reversedNote": "Carta invertida é um conselho gentil, nunca um mau sinal.",
+  "readMyReading": "Ver minha leitura",
+  "todaysAdvice": "Conselho de hoje",
+  "wasThisHelpful": "Isso ajudou você?",
+  "helpful": "Ajudou",
+  "notHelpful": "Não ajudou",
+  "thanksRating": "Obrigada, isso nos ajuda a melhorar",
+  "backHome": "Voltar ao início",
+  "advertisement": "Publicidade",
+  "todaysReading": "Leitura de hoje",
+  "topicPickerTitle": "Sobre o que você quer refletir hoje?",
+  "topicPickerBody": "Escolha um tema. Suas cartas vão falar sobre ele.",
+  "moodLine": "Hoje a Lua está no {part} de {sign}",
+  "@moodLine": {
+    "placeholders": {
+      "part": {
+        "type": "String"
+      },
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "decanStart": "início",
+  "decanMiddle": "meio",
+  "decanEnd": "fim",
+  "influenceHarmony": "{planet} faz um aspecto harmonioso com seu signo",
+  "@influenceHarmony": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "influenceTense": "{planet} faz um aspecto tenso com seu signo hoje",
+  "@influenceTense": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "adviceLine": "A Lua está em {sign}",
+  "@adviceLine": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "moodShiftedAt": "Seu humor mudou às {time}",
+  "@moodShiftedAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "saveTitle": "Salve seu perfil",
+  "saveBody": "Assim seu perfil e suas leituras ficam seguros, mesmo se você trocar de celular.",
+  "email": "E-mail",
+  "emailHint": "name@example.com",
+  "password": "Senha",
+  "passwordHint": "Pelo menos 8 caracteres",
+  "passwordHintSignIn": "Sua senha",
+  "showPassword": "Mostrar senha",
+  "hidePassword": "Ocultar senha",
+  "adultCheck": "Tenho 18 anos ou mais",
+  "privacyNote": "Mantemos seus dados de nascimento em sigilo e nunca os vendemos.",
+  "privacyPolicy": "Política de privacidade",
+  "saveMyProfile": "Salvar meu perfil",
+  "saving": "Salvando…",
+  "haveAccount": "Já tem uma conta?",
+  "signIn": "Entrar",
+  "emailInvalid": "Este e-mail parece incompleto. Confira e tente de novo.",
+  "passwordShort": "Use pelo menos 8 caracteres.",
+  "emailUsedTitle": "Este e-mail já tem uma conta.",
+  "emailUsedBody": "Entre para recuperar seu perfil.",
+  "signInInstead": "Entrar na conta",
+  "noConnection": "Sem conexão",
+  "saveNetworkError": "Não conseguimos salvar seu perfil. Verifique sua internet e tente de novo.",
+  "welcomeBack": "Bem-vinda de volta",
+  "signInBody": "Entre para recuperar seu perfil e suas leituras.",
+  "wrongPassword": "Essa senha não está certa. Tente de novo.",
+  "forgotPassword": "Esqueceu a senha?",
+  "resetTitle": "Redefina sua senha",
+  "resetBody": "Digite o e-mail do seu cadastro. Vamos enviar um link para você criar uma nova senha.",
+  "sendResetLink": "Enviar link",
+  "checkEmailTitle": "Confira seu e-mail",
+  "checkEmailBody": "Enviamos um link para {email}. Abra-o neste celular para criar uma nova senha.",
+  "@checkEmailBody": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "checkSpam": "Não encontrou? Veja na pasta de spam.",
+  "backToSignIn": "Voltar ao login",
+  "sendAgain": "Enviar o link de novo",
+  "newPasswordTitle": "Crie uma nova senha",
+  "newPasswordFor": "Para {email}",
+  "@newPasswordFor": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "saveAndSignIn": "Salvar e entrar",
+  "goodMorning": "Bom dia, {name}",
+  "@goodMorning": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "welcomeName": "Bem-vinda, {name}",
+  "@welcomeName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "todaysCards": "Cartas de hoje",
+  "todaysCardsTopic": "Cartas de hoje · {topic}",
+  "@todaysCardsTopic": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "revealTodaysCards": "Revelar as cartas de hoje",
+  "nextCardsTomorrow": "Suas próximas cartas chegam amanhã às {time}",
+  "@nextCardsTomorrow": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tapCardToReread": "Toque em uma carta para rever a leitura de hoje.",
+  "tipRemindersOff": "Toda manhã o céu traz 3 cartas novas para você. Ative os lembretes para não perdê-las.",
+  "changeTime": "Mudar horário",
+  "gotIt": "Entendi",
+  "offlineBar": "Sem internet. Suas cartas de hoje continuam aqui.",
+  "remindersTitle": "Saiba quando suas cartas novas chegam",
+  "remindersFootnote": "Você pode desativar quando quiser em Configurações.",
+  "turnOnReminders": "Ativar lembretes",
+  "notNow": "Agora não",
+  "notifMorningTitle": "Suas cartas de hoje estão prontas",
+  "notifMorningBody": "Toque para revelá-las.",
+  "settings": "Configurações",
+  "editProfile": "Editar perfil",
+  "focusTopics": "Temas em foco",
+  "nChosen": "Escolhidos: {n}",
+  "@nChosen": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "language": "Idioma",
+  "deleteAccount": "Excluir conta",
+  "deleteTitle": "Excluir sua conta?",
+  "deleteBody": "Isso apaga seu perfil e todas as suas leituras. Não é possível desfazer.",
+  "keepAccount": "Manter minha conta",
+  "birthDetailsNote": "Mudanças nos dados de nascimento valem a partir das cartas de amanhã.",
+  "birthDate": "Data de nascimento",
+  "errorTitle": "Algo deu errado",
+  "errorBody": "Não conseguimos carregar suas cartas. Tente de novo daqui a pouco.",
+  "settingsLabel": "Configurações",
+  "sign_aries": "Áries",
+  "sign_taurus": "Touro",
+  "sign_gemini": "Gêmeos",
+  "sign_cancer": "Câncer",
+  "sign_leo": "Leão",
+  "sign_virgo": "Virgem",
+  "sign_libra": "Libra",
+  "sign_scorpio": "Escorpião",
+  "sign_sagittarius": "Sagitário",
+  "sign_capricorn": "Capricórnio",
+  "sign_aquarius": "Aquário",
+  "sign_pisces": "Peixes",
+  "planet_sun": "O Sol",
+  "planet_moon": "A Lua",
+  "planet_mercury": "Mercúrio",
+  "planet_venus": "Vênus",
+  "planet_mars": "Marte",
+  "planet_jupiter": "Júpiter",
+  "planet_saturn": "Saturno",
+  "planet_uranus": "Urano",
+  "planet_neptune": "Netuno",
+  "planet_pluto": "Plutão",
+  "cardFaceDownSemantics": "Carta {index} de 3, {position}, virada para baixo. Toque duas vezes para revelar",
+  "@cardFaceDownSemantics": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "position": {
+        "type": "String"
+      }
+    }
+  },
+  "cardRevealedSemantics": "{position}: {card}. {line}",
+  "@cardRevealedSemantics": {
+    "placeholders": {
+      "position": {
+        "type": "String"
+      },
+      "card": {
+        "type": "String"
+      },
+      "line": {
+        "type": "String"
+      }
+    }
+  }
 }
