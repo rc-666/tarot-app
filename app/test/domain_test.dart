@@ -24,6 +24,18 @@ void main() {
     expect(daysInMonth(1975, 4), 30);
   });
 
+  test('card numerals match the deck', () {
+    expect(cardNumeral('m00'), '0');
+    expect(cardNumeral('m04'), 'IV');
+    expect(cardNumeral('m09'), 'IX');
+    expect(cardNumeral('m14'), 'XIV');
+    expect(cardNumeral('m19'), 'XIX');
+    expect(cardNumeral('m21'), 'XXI');
+    expect(cardNumeral('w01'), 'I');
+    expect(cardNumeral('c10'), 'X');
+    expect(cardNumeral('p14'), ''); // King: no numeral
+  });
+
   test('decan helpers', () {
     expect(decanSign(10), 'cancer');
     expect(decanPart(10), 1); // middle
@@ -53,6 +65,7 @@ void main() {
     expect(SkyRepository.serverZoneFor(const Duration(hours: -3)), 'America/Sao_Paulo');
     expect(SkyRepository.serverZoneFor(const Duration(hours: -2)), 'America/Noronha');
     expect(SkyRepository.serverZoneFor(const Duration(hours: -6)), 'America/Mexico_City');
+    expect(SkyRepository.serverZoneFor(const Duration(hours: -7)), 'America/Tijuana');
     expect(SkyRepository.serverZoneFor(const Duration(hours: 1)), 'America/Noronha'); // nearest
   });
 

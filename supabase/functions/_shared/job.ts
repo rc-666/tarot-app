@@ -111,11 +111,15 @@ export async function runSkyJob(db: Db, now: Date, opts: { pageSize?: number } =
   return result;
 }
 
+const tzOk = new Map<string, boolean>();
 export function isValidTz(tz: string): boolean {
+  const known = tzOk.get(tz);
+  if (known !== undefined) return known;
   try {
     new Intl.DateTimeFormat("en-US", { timeZone: tz });
-    return true;
+    tzOk.set(tz, true);
   } catch {
-    return false;
+    tzOk.set(tz, false);
   }
+  return tzOk.get(tz)!;
 }

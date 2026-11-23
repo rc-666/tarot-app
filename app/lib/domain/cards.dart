@@ -47,3 +47,20 @@ String decanSign(int decan) => signs[decan ~/ 3];
 
 /// Days in a month, for the date wheel (Feb 29 only in leap years).
 int daysInMonth(int year, int month) => DateTime(year, month + 1, 0).day;
+
+/// Roman numeral above the card's arch: majors 0–XXI, pips I–X, court cards none. Ids: m00, c03, p14.
+String cardNumeral(String id) {
+  final n = int.parse(id.substring(1));
+  if (id[0] != 'm' && n > 10) return '';
+  if (n == 0) return '0';
+  const r = [(10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')];
+  final b = StringBuffer();
+  var v = n;
+  for (final (val, sym) in r) {
+    while (v >= val) {
+      b.write(sym);
+      v -= val;
+    }
+  }
+  return b.toString();
+}

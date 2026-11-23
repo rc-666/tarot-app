@@ -134,7 +134,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     const SizedBox(height: AppSpace.lg),
                   ],
                   Text(
-                    upper(reading == null ? t.todaysCards : t.todaysCardsTopic(topicName(t, reading.topic))),
+                    (reading == null ? t.todaysCards : t.todaysCardsTopic(topicName(t, reading.topic))).toUpperCase(),
                     style: AppText.label,
                   ),
                   const SizedBox(height: AppSpace.md),

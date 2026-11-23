@@ -19,13 +19,14 @@ workflows:
       - name: Get packages
         working_directory: app
         script: flutter pub get
-      - name: Analyze (report only; first builds will list fixes)
+      - name: Analyze (fails on errors and warnings; info notes are listed only)
         working_directory: app
-        script: flutter analyze --no-fatal-infos --no-fatal-warnings 2>&1 | tee ../analyze.txt || true
-      - name: Unit tests
+        script: |
+          set -o pipefail
+          flutter analyze --no-fatal-infos 2>&1 | tee ../analyze.txt
+      - name: Unit tests (a failing test stops the build)
         working_directory: app
         script: flutter test
-        ignore_failure: true
       - name: Build demo APK
         working_directory: app
         script: flutter build apk --release --dart-define=DEMO=true

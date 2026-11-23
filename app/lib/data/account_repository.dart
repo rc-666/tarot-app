@@ -79,7 +79,7 @@ class SupabaseAccount implements AccountApi {
       await _store.clearDraft();
       return p;
     } on AuthException catch (e) {
-      if (e.message.toLowerCase().contains('already registered') || e.statusCode == '422') {
+      if (e.code == 'user_already_exists' || e.message.toLowerCase().contains('already registered')) {
         throw AccountException(SaveError.emailUsed);
       }
       throw AccountException(_isNetwork(e) ? SaveError.network : SaveError.other);
@@ -95,7 +95,16 @@ class SupabaseAccount implements AccountApi {
   Future<Profile> signIn(String email, String password) async {
     try {
       await _sb.auth.signInWithPassword(email: email, password: password);
-      final p = await fetchProfile();
+      var p = await fetchProfile();
+      // A sign-up whose profile insert failed (e.g. lost connection) leaves an account with no profile:
+      // finish it from the onboarding draft still on this phone.
+      final draft = _store.draft;
+      if (p == null && draft.birthDate != null && draft.focusTopics.isNotEmpty) {
+        p = _profileFromDraft(user!.id, draft, _store.profile?.tz ?? 'America/Sao_Paulo');
+        await _sb.from('profiles').insert({...p.toRow(), 'is_adult': true});
+        await _store.setProfile(p);
+        await _store.clearDraft();
+      }
       if (p == null) throw AccountException(SignInError.other);
       return p;
     } on AuthException catch (e) {

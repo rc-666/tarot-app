@@ -316,7 +316,7 @@ class _CardPanel extends StatelessWidget {
         padding: const EdgeInsets.all(AppSpace.md),
         decoration: BoxDecoration(color: AppColors.surface, borderRadius: BorderRadius.circular(AppRadius.medium)),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(upper(label), style: AppText.label.copyWith(color: AppColors.primary)),
+          Text(label.toUpperCase(), style: AppText.label.copyWith(color: AppColors.primary)),
           const SizedBox(height: AppSpace.xxs),
           Text.rich(TextSpan(text: name, style: AppText.title, children: [
             if (reversed) TextSpan(text: ' · ${l10n(context).reversed}', style: AppText.caption.copyWith(color: AppColors.primary)),
@@ -344,7 +344,7 @@ class _Section extends StatelessWidget {
           const SizedBox(width: AppSpace.sm),
           Expanded(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(upper(label), style: AppText.label),
+              Text(label.toUpperCase(), style: AppText.label),
               Text(name, style: AppText.title),
               if (reversed) Text(t.reversed, style: AppText.caption.copyWith(color: AppColors.primary)),
               if (note != null) Text(note!, style: AppText.caption.copyWith(color: AppColors.primary)),
@@ -371,7 +371,7 @@ class _AdvicePanel extends StatelessWidget {
           border: const Border(top: BorderSide(color: AppColors.primary, width: 2)),
         ),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(upper(title), style: AppText.label.copyWith(color: AppColors.primary)),
+          Text(title.toUpperCase(), style: AppText.label.copyWith(color: AppColors.primary)),
           const SizedBox(height: AppSpace.xs),
           Text(text, style: AppText.readingBody.copyWith(fontSize: 19)),
         ]),

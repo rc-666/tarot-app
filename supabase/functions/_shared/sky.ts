@@ -88,10 +88,29 @@ const BODY: Record<Planet, A.Body> = {
 export function moonLon(t: Date): number {
   return norm360(A.EclipticGeoMoon(t).lon);
 }
+const moonCache = new Map<number, number>();
+function moonLonCached(t: Date): number {
+  let v = moonCache.get(t.getTime());
+  if (v === undefined) {
+    v = moonLon(t);
+    if (moonCache.size > 5000) moonCache.clear();
+    moonCache.set(t.getTime(), v);
+  }
+  return v;
+}
 
+// Everyone in a time zone shares the same 06:00 instant, so positions are cached per instant:
+// the nightly job then costs ~0.07 ms per user instead of ~0.6 ms (Edge Functions allow 2 s CPU).
+const lonCache = new Map<string, number>();
 export function planetLon(p: Planet, t: Date): number {
-  if (p === "sun") return norm360(A.SunPosition(t).elon);
-  return norm360(A.Ecliptic(A.GeoVector(BODY[p], t, true)).elon);
+  const key = p + t.getTime();
+  let v = lonCache.get(key);
+  if (v === undefined) {
+    v = p === "sun" ? norm360(A.SunPosition(t).elon) : norm360(A.Ecliptic(A.GeoVector(BODY[p], t, true)).elon);
+    if (lonCache.size > 5000) lonCache.clear();
+    lonCache.set(key, v);
+  }
+  return v;
 }
 
 // ---------- Transits ----------
@@ -193,7 +212,7 @@ export function dailyCards(
 ): DailyCards {
   const at = localToUtc(day, REFERENCE_HOUR, 0, tz);
   const influence = strongestTransit(at, natal ?? { sun: signMidpoint(sign) }, sign);
-  const ms = signOf(moonLon(at));
+  const ms = signOf(moonLonCached(at));
   return { day, tz, at: at.toISOString(), influence, advice: { card: SIGN_CARD[ms], moonSign: ms } };
 }
 
@@ -227,38 +246,23 @@ export function moodShifts(from: Date, to: Date): MoodShift[] {
   return out;
 }
 
-/** Mood card in force at time t. */
-export function moodAt(t: Date): { decan: number; card: string; moonSign: Sign } {
-  const d = decanOf(moonLon(t));
-  return { decan: d, card: decanCard(d).id, moonSign: SIGNS[Math.floor(d / 3)] };
-}
-
-// ---------- Notification planning ----------
-
-export const QUIET_START = 21; // 21:00 local
-export const QUIET_END = 8; // 08:00 local
-
-/** Pick which mood shifts get a notification: outside quiet hours, max one per local day (the first). */
-export function notifiableShifts(shifts: MoodShift[], tz: string): MoodShift[] {
-  const seen = new Set<string>();
-  const out: MoodShift[] = [];
-  for (const s of shifts) {
-    const { day, hour } = localParts(new Date(s.at), tz);
-    if (hour >= QUIET_START || hour < QUIET_END) continue;
-    if (seen.has(day)) continue;
-    seen.add(day);
-    out.push(s);
-  }
-  return out;
-}
-
 // ---------- Time zones ----------
 
+const fmtCache = new Map<string, Intl.DateTimeFormat>();
+function fmt(kind: "full" | "day", tz: string): Intl.DateTimeFormat {
+  const key = kind + tz;
+  let f = fmtCache.get(key);
+  if (!f) {
+    f = kind === "full"
+      ? new Intl.DateTimeFormat("en-US", { timeZone: tz, hourCycle: "h23", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit" })
+      : new Intl.DateTimeFormat("en-CA", { timeZone: tz, hourCycle: "h23", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit" });
+    fmtCache.set(key, f);
+  }
+  return f;
+}
+
 function tzOffsetMs(t: Date, tz: string): number {
-  const f = new Intl.DateTimeFormat("en-US", {
-    timeZone: tz, hourCycle: "h23", year: "numeric", month: "2-digit", day: "2-digit",
-    hour: "2-digit", minute: "2-digit", second: "2-digit",
-  });
+  const f = fmt("full", tz);
   const p = Object.fromEntries(f.formatToParts(t).map((x) => [x.type, x.value]));
   const asUtc = Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour, +p.minute, +p.second);
   return asUtc - Math.floor(t.getTime() / 1000) * 1000;
@@ -274,9 +278,7 @@ export function localToUtc(day: string, hour: number, minute: number, tz: string
 }
 
 export function localParts(t: Date, tz: string): { day: string; hour: number } {
-  const f = new Intl.DateTimeFormat("en-CA", {
-    timeZone: tz, hourCycle: "h23", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit",
-  });
+  const f = fmt("day", tz);
   const p = Object.fromEntries(f.formatToParts(t).map((x) => [x.type, x.value]));
   return { day: `${p.year}-${p.month}-${p.day}`, hour: +p.hour };
 }
@@ -302,5 +304,5 @@ function round2(x: number) {
 /** Time zones the cron computes sign-level cards for. Add more when launching new markets. */
 export const SUPPORTED_TZ = [
   "America/Noronha", "America/Sao_Paulo", "America/Manaus", "America/Rio_Branco",
-  "America/Mexico_City", "America/Cancun", "America/Tijuana",
+  "America/Mexico_City", "America/Tijuana",
 ];

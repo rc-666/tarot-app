@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../domain/cards.dart';
 import '../../theme/app_theme.dart';
 
 /// One deck card (card-deck-spec.md): art + gold frame + live text, on a 240 × 403 design grid.
@@ -41,7 +42,7 @@ class CardFace extends StatelessWidget {
     final dpr = MediaQuery.devicePixelRatioOf(context);
     Widget art = Image.asset('assets/deck/art/$id.webp', fit: BoxFit.fill, cacheWidth: (192 * k * dpr).round());
     if (reversed) art = RotatedBox(quarterTurns: 2, child: art);
-    final numeral = _numeral(id);
+    final numeral = cardNumeral(id);
     return SizedBox(
       width: size.width,
       height: size.height,
@@ -72,22 +73,6 @@ class CardFace extends StatelessWidget {
             style: TextStyle(fontFamily: 'Playfair Display', fontWeight: FontWeight.w600, fontSize: size, letterSpacing: spacing, color: color, height: 1)),
       );
 
-  /// Roman numeral above the arch: majors 0–XXI, pips I–X, courts none.
-  static String _numeral(String id) {
-    final n = int.parse(id.substring(1));
-    if (id[0] != 'm' && n > 10) return '';
-    if (n == 0) return '0';
-    const r = [(10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')];
-    final b = StringBuffer();
-    var v = n;
-    for (final (val, sym) in r) {
-      while (v >= val) {
-        b.write(sym);
-        v -= val;
-      }
-    }
-    return b.toString();
-  }
 }
 
 /// The reveal (spec 5): lift 4 dp (120 ms) → flip on Y with perspective, face swaps at 90° (500 ms)

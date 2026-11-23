@@ -24,6 +24,7 @@ class SkyRepository {
       -4: 'America/Manaus',
       -5: 'America/Rio_Branco',
       -6: 'America/Mexico_City',
+      -7: 'America/Tijuana', // summer time
       -8: 'America/Tijuana',
     };
     final h = (offset.inMinutes / 60).round();

@@ -264,4 +264,3 @@ class Skeleton extends StatelessWidget {
       );
 }
 
-String upper(String s) => s.toUpperCase();

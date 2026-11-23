@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import * as A from "astronomy-engine";
 import {
   decanCard, decanOf, signOf, moonLon, planetLon, moodShifts, localToUtc, localParts,
-  notifiableShifts, aspectBetween, strongestTransit, dailyCards, natalPoints, SIGN_CARD, PLANET_CARD,
+  aspectBetween, strongestTransit, dailyCards, natalPoints, SIGN_CARD, PLANET_CARD,
   SIGNS, PLANETS, signMidpoint, SUPPORTED_TZ,
 } from "../_shared/sky.ts";
 
@@ -68,19 +68,6 @@ test("06:00 local in Brazil and Mexico time zones", () => {
   assert.equal(localToUtc("2026-07-01", 6, 0, "America/New_York").toISOString(), "2026-07-01T10:00:00.000Z");
   assert.deepEqual(localParts(new Date("2026-11-22T02:30:00Z"), "America/Sao_Paulo"), { day: "2026-11-21", hour: 23 });
   for (const tz of SUPPORTED_TZ) assert.ok(localToUtc("2026-11-22", 6, 0, tz) instanceof Date);
-});
-
-test("notifications: quiet hours 21-08 and max one per local day", () => {
-  const tz = "America/Sao_Paulo"; // UTC-3
-  const mk = (iso: string) => ({ at: iso, decan: 0, card: "x", moonSign: "aries" as const });
-  const shifts = [
-    mk("2026-11-23T01:00:00Z"), // 22:00 local -> quiet
-    mk("2026-11-23T10:30:00Z"), // 07:30 local -> quiet
-    mk("2026-11-23T11:00:00Z"), // 08:00 local -> ok
-    mk("2026-11-23T20:00:00Z"), // 17:00 same day -> second, skipped
-    mk("2026-11-24T23:59:00Z"), // 20:59 local -> ok (new day)
-  ];
-  assert.deepEqual(notifiableShifts(shifts, tz).map((s) => s.at), ["2026-11-23T11:00:00Z", "2026-11-24T23:59:00Z"]);
 });
 
 test("aspects and orbs", () => {

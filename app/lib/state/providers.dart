@@ -30,7 +30,7 @@ final accountProvider = Provider<AccountApi?>((ref) {
   return sb == null ? null : SupabaseAccount(sb, ref.watch(storeProvider));
 });
 final skyProvider = Provider((ref) => SkyRepository(ref.watch(supabaseProvider), ref.watch(storeProvider)));
-final libraryRepoProvider = Provider((ref) => LibraryRepository(ref.watch(storeProvider)));
+final libraryRepoProvider = Provider((ref) => LibraryRepository(ref.watch(storeProvider), ref.watch(supabaseProvider)));
 final placesProvider = Provider((_) => PlacesRepository());
 
 // ---- Onboarding draft (before an account exists) ----

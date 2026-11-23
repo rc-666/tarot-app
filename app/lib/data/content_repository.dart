@@ -1,9 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:http/http.dart' as http;
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../app/config.dart';
 import '../domain/models.dart';
 import '../domain/reading_assembler.dart';
 import 'local_store.dart';
@@ -11,8 +10,9 @@ import 'local_store.dart';
 /// Explanation library: bundled copy first, newer copy from Storage when the version is higher.
 /// Storage layout (bucket `library`): `manifest.json` = `{"en": 3, "pt": 2}`, `<lang>.json`.
 class LibraryRepository {
-  LibraryRepository(this._store);
+  LibraryRepository(this._store, this._sb);
   final LocalStore _store;
+  final SupabaseClient? _sb; // null in the demo build
 
   Future<Library> load(String language) async {
     final cached = _store.libraryJson;
@@ -35,16 +35,14 @@ class LibraryRepository {
 
   /// Checks once per app start; downloads only when the manifest has a higher version (prepaid data).
   Future<Library?> refresh(String language, int currentVersion) async {
-    if (!AppConfig.hasBackend) return null;
-    final base = '${AppConfig.supabaseUrl}/storage/v1/object/public/library';
+    final sb = _sb;
+    if (sb == null) return null;
+    final bucket = sb.storage.from('library');
     try {
-      final m = await http.get(Uri.parse('$base/manifest.json')).timeout(const Duration(seconds: 8));
-      if (m.statusCode != 200) return null;
-      final v = (jsonDecode(m.body) as Map<String, dynamic>)[language] as int?;
+      final m = await bucket.download('manifest.json').timeout(const Duration(seconds: 8));
+      final v = (jsonDecode(utf8.decode(m)) as Map<String, dynamic>)[language] as int?;
       if (v == null || v <= currentVersion) return null;
-      final r = await http.get(Uri.parse('$base/$language.json')).timeout(const Duration(seconds: 30));
-      if (r.statusCode != 200) return null;
-      final body = utf8.decode(r.bodyBytes);
+      final body = utf8.decode(await bucket.download('$language.json').timeout(const Duration(seconds: 30)));
       final lib = Library.fromJson(jsonDecode(body) as Map<String, dynamic>);
       await _store.setLibraryJson(body);
       return lib;

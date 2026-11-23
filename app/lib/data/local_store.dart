@@ -93,5 +93,4 @@ class Flags {
   static const remindersAsked = 'remindersAsked';
   static const remindersOn = 'remindersOn';
   static const firstDayTipDone = 'firstDayTipDone';
-  static const firstDay = 'firstDay';
 }
