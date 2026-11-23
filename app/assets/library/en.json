@@ -1,319 +1,399 @@
 {
- "version": 1,
+ "version": 2,
  "language": "en",
  "placeholder": true,
  "cards": {
-  "major_00_fool": {
+  "m00": {
    "name": "The Fool",
    "short": "[placeholder meaning]."
   },
-  "major_01_magician": {
+  "m01": {
    "name": "The Magician",
    "short": "[placeholder meaning]."
   },
-  "major_02_high_priestess": {
+  "m02": {
    "name": "The High Priestess",
    "short": "[placeholder meaning]."
   },
-  "major_03_empress": {
+  "m03": {
    "name": "The Empress",
    "short": "[placeholder meaning]."
   },
-  "major_04_emperor": {
+  "m04": {
    "name": "The Emperor",
    "short": "[placeholder meaning]."
   },
-  "major_05_hierophant": {
+  "m05": {
    "name": "The Hierophant",
    "short": "[placeholder meaning]."
   },
-  "major_06_lovers": {
+  "m06": {
    "name": "The Lovers",
    "short": "[placeholder meaning]."
   },
-  "major_07_chariot": {
+  "m07": {
    "name": "The Chariot",
    "short": "[placeholder meaning]."
   },
-  "major_08_strength": {
+  "m08": {
    "name": "Strength",
    "short": "courage that comes from a gentle heart."
   },
-  "major_09_hermit": {
+  "m09": {
    "name": "The Hermit",
    "short": "[placeholder meaning]."
   },
-  "major_10_wheel": {
+  "m10": {
    "name": "Wheel of Fortune",
    "short": "[placeholder meaning]."
   },
-  "major_11_justice": {
+  "m11": {
    "name": "Justice",
    "short": "[placeholder meaning]."
   },
-  "major_12_hanged_man": {
+  "m12": {
    "name": "The Hanged Man",
    "short": "[placeholder meaning]."
   },
-  "major_13_death": {
+  "m13": {
    "name": "Death",
    "short": "[placeholder meaning]."
   },
-  "major_14_temperance": {
+  "m14": {
    "name": "Temperance",
    "short": "[placeholder meaning]."
   },
-  "major_15_devil": {
+  "m15": {
    "name": "The Devil",
    "short": "[placeholder meaning]."
   },
-  "major_16_tower": {
+  "m16": {
    "name": "The Tower",
    "short": "[placeholder meaning]."
   },
-  "major_17_star": {
+  "m17": {
    "name": "The Star",
    "short": "[placeholder meaning]."
   },
-  "major_18_moon": {
+  "m18": {
    "name": "The Moon",
    "short": "[placeholder meaning]."
   },
-  "major_19_sun": {
+  "m19": {
    "name": "The Sun",
    "short": "[placeholder meaning]."
   },
-  "major_20_judgement": {
+  "m20": {
    "name": "Judgement",
    "short": "[placeholder meaning]."
   },
-  "major_21_world": {
+  "m21": {
    "name": "The World",
    "short": "[placeholder meaning]."
   },
-  "minor_wands_02": {
+  "w01": {
+   "name": "Ace of Wands",
+   "short": "[placeholder meaning]."
+  },
+  "w02": {
    "name": "Two of Wands",
    "short": "[placeholder meaning]."
   },
-  "minor_wands_03": {
+  "w03": {
    "name": "Three of Wands",
    "short": "[placeholder meaning]."
   },
-  "minor_wands_04": {
+  "w04": {
    "name": "Four of Wands",
    "short": "[placeholder meaning]."
   },
-  "minor_wands_05": {
+  "w05": {
    "name": "Five of Wands",
    "short": "[placeholder meaning]."
   },
-  "minor_wands_06": {
+  "w06": {
    "name": "Six of Wands",
    "short": "[placeholder meaning]."
   },
-  "minor_wands_07": {
+  "w07": {
    "name": "Seven of Wands",
    "short": "[placeholder meaning]."
   },
-  "minor_wands_08": {
+  "w08": {
    "name": "Eight of Wands",
    "short": "[placeholder meaning]."
   },
-  "minor_wands_09": {
+  "w09": {
    "name": "Nine of Wands",
    "short": "[placeholder meaning]."
   },
-  "minor_wands_10": {
+  "w10": {
    "name": "Ten of Wands",
    "short": "[placeholder meaning]."
   },
-  "minor_cups_02": {
+  "w11": {
+   "name": "Page of Wands",
+   "short": "[placeholder meaning]."
+  },
+  "w12": {
+   "name": "Knight of Wands",
+   "short": "[placeholder meaning]."
+  },
+  "w13": {
+   "name": "Queen of Wands",
+   "short": "[placeholder meaning]."
+  },
+  "w14": {
+   "name": "King of Wands",
+   "short": "[placeholder meaning]."
+  },
+  "c01": {
+   "name": "Ace of Cups",
+   "short": "[placeholder meaning]."
+  },
+  "c02": {
    "name": "Two of Cups",
    "short": "[placeholder meaning]."
   },
-  "minor_cups_03": {
+  "c03": {
    "name": "Three of Cups",
    "short": "[placeholder meaning]."
   },
-  "minor_cups_04": {
+  "c04": {
    "name": "Four of Cups",
    "short": "[placeholder meaning]."
   },
-  "minor_cups_05": {
+  "c05": {
    "name": "Five of Cups",
    "short": "[placeholder meaning]."
   },
-  "minor_cups_06": {
+  "c06": {
    "name": "Six of Cups",
    "short": "[placeholder meaning]."
   },
-  "minor_cups_07": {
+  "c07": {
    "name": "Seven of Cups",
    "short": "[placeholder meaning]."
   },
-  "minor_cups_08": {
+  "c08": {
    "name": "Eight of Cups",
    "short": "[placeholder meaning]."
   },
-  "minor_cups_09": {
+  "c09": {
    "name": "Nine of Cups",
    "short": "[placeholder meaning]."
   },
-  "minor_cups_10": {
+  "c10": {
    "name": "Ten of Cups",
    "short": "[placeholder meaning]."
   },
-  "minor_swords_02": {
+  "c11": {
+   "name": "Page of Cups",
+   "short": "[placeholder meaning]."
+  },
+  "c12": {
+   "name": "Knight of Cups",
+   "short": "[placeholder meaning]."
+  },
+  "c13": {
+   "name": "Queen of Cups",
+   "short": "[placeholder meaning]."
+  },
+  "c14": {
+   "name": "King of Cups",
+   "short": "[placeholder meaning]."
+  },
+  "s01": {
+   "name": "Ace of Swords",
+   "short": "[placeholder meaning]."
+  },
+  "s02": {
    "name": "Two of Swords",
    "short": "[placeholder meaning]."
   },
-  "minor_swords_03": {
+  "s03": {
    "name": "Three of Swords",
    "short": "[placeholder meaning]."
   },
-  "minor_swords_04": {
+  "s04": {
    "name": "Four of Swords",
    "short": "[placeholder meaning]."
   },
-  "minor_swords_05": {
+  "s05": {
    "name": "Five of Swords",
    "short": "[placeholder meaning]."
   },
-  "minor_swords_06": {
+  "s06": {
    "name": "Six of Swords",
    "short": "[placeholder meaning]."
   },
-  "minor_swords_07": {
+  "s07": {
    "name": "Seven of Swords",
    "short": "[placeholder meaning]."
   },
-  "minor_swords_08": {
+  "s08": {
    "name": "Eight of Swords",
    "short": "[placeholder meaning]."
   },
-  "minor_swords_09": {
+  "s09": {
    "name": "Nine of Swords",
    "short": "[placeholder meaning]."
   },
-  "minor_swords_10": {
+  "s10": {
    "name": "Ten of Swords",
    "short": "[placeholder meaning]."
   },
-  "minor_pentacles_02": {
+  "s11": {
+   "name": "Page of Swords",
+   "short": "[placeholder meaning]."
+  },
+  "s12": {
+   "name": "Knight of Swords",
+   "short": "[placeholder meaning]."
+  },
+  "s13": {
+   "name": "Queen of Swords",
+   "short": "[placeholder meaning]."
+  },
+  "s14": {
+   "name": "King of Swords",
+   "short": "[placeholder meaning]."
+  },
+  "p01": {
+   "name": "Ace of Pentacles",
+   "short": "[placeholder meaning]."
+  },
+  "p02": {
    "name": "Two of Pentacles",
    "short": "[placeholder meaning]."
   },
-  "minor_pentacles_03": {
+  "p03": {
    "name": "Three of Pentacles",
    "short": "[placeholder meaning]."
   },
-  "minor_pentacles_04": {
+  "p04": {
    "name": "Four of Pentacles",
    "short": "[placeholder meaning]."
   },
-  "minor_pentacles_05": {
+  "p05": {
    "name": "Five of Pentacles",
    "short": "[placeholder meaning]."
   },
-  "minor_pentacles_06": {
+  "p06": {
    "name": "Six of Pentacles",
    "short": "[placeholder meaning]."
   },
-  "minor_pentacles_07": {
+  "p07": {
    "name": "Seven of Pentacles",
    "short": "[placeholder meaning]."
   },
-  "minor_pentacles_08": {
+  "p08": {
    "name": "Eight of Pentacles",
    "short": "[placeholder meaning]."
   },
-  "minor_pentacles_09": {
+  "p09": {
    "name": "Nine of Pentacles",
    "short": "[placeholder meaning]."
   },
-  "minor_pentacles_10": {
+  "p10": {
    "name": "Ten of Pentacles",
+   "short": "[placeholder meaning]."
+  },
+  "p11": {
+   "name": "Page of Pentacles",
+   "short": "[placeholder meaning]."
+  },
+  "p12": {
+   "name": "Knight of Pentacles",
+   "short": "[placeholder meaning]."
+  },
+  "p13": {
+   "name": "Queen of Pentacles",
+   "short": "[placeholder meaning]."
+  },
+  "p14": {
+   "name": "King of Pentacles",
    "short": "[placeholder meaning]."
   }
  },
  "texts": {
-  "mood.minor_wands_02": "[Placeholder: library text for Two of Wands, mood. Supplied by the translation agent.]",
-  "mood.minor_wands_03": "[Placeholder: library text for Three of Wands, mood. Supplied by the translation agent.]",
-  "mood.minor_wands_04": "[Placeholder: library text for Four of Wands, mood. Supplied by the translation agent.]",
-  "mood.minor_wands_05": "[Placeholder: library text for Five of Wands, mood. Supplied by the translation agent.]",
-  "mood.minor_wands_06": "[Placeholder: library text for Six of Wands, mood. Supplied by the translation agent.]",
-  "mood.minor_wands_07": "[Placeholder: library text for Seven of Wands, mood. Supplied by the translation agent.]",
-  "mood.minor_wands_08": "[Placeholder: library text for Eight of Wands, mood. Supplied by the translation agent.]",
-  "mood.minor_wands_09": "[Placeholder: library text for Nine of Wands, mood. Supplied by the translation agent.]",
-  "mood.minor_wands_10": "[Placeholder: library text for Ten of Wands, mood. Supplied by the translation agent.]",
-  "mood.minor_cups_02": "[Placeholder: library text for Two of Cups, mood. Supplied by the translation agent.]",
-  "mood.minor_cups_03": "[Placeholder: library text for Three of Cups, mood. Supplied by the translation agent.]",
-  "mood.minor_cups_04": "[Placeholder: library text for Four of Cups, mood. Supplied by the translation agent.]",
-  "mood.minor_cups_05": "[Placeholder: library text for Five of Cups, mood. Supplied by the translation agent.]",
-  "mood.minor_cups_06": "[Placeholder: library text for Six of Cups, mood. Supplied by the translation agent.]",
-  "mood.minor_cups_07": "[Placeholder: library text for Seven of Cups, mood. Supplied by the translation agent.]",
-  "mood.minor_cups_08": "[Placeholder: library text for Eight of Cups, mood. Supplied by the translation agent.]",
-  "mood.minor_cups_09": "[Placeholder: library text for Nine of Cups, mood. Supplied by the translation agent.]",
-  "mood.minor_cups_10": "[Placeholder: library text for Ten of Cups, mood. Supplied by the translation agent.]",
-  "mood.minor_swords_02": "[Placeholder: library text for Two of Swords, mood. Supplied by the translation agent.]",
-  "mood.minor_swords_03": "[Placeholder: library text for Three of Swords, mood. Supplied by the translation agent.]",
-  "mood.minor_swords_04": "[Placeholder: library text for Four of Swords, mood. Supplied by the translation agent.]",
-  "mood.minor_swords_05": "[Placeholder: library text for Five of Swords, mood. Supplied by the translation agent.]",
-  "mood.minor_swords_06": "[Placeholder: library text for Six of Swords, mood. Supplied by the translation agent.]",
-  "mood.minor_swords_07": "[Placeholder: library text for Seven of Swords, mood. Supplied by the translation agent.]",
-  "mood.minor_swords_08": "[Placeholder: library text for Eight of Swords, mood. Supplied by the translation agent.]",
-  "mood.minor_swords_09": "[Placeholder: library text for Nine of Swords, mood. Supplied by the translation agent.]",
-  "mood.minor_swords_10": "[Placeholder: library text for Ten of Swords, mood. Supplied by the translation agent.]",
-  "mood.minor_pentacles_02": "[Placeholder: library text for Two of Pentacles, mood. Supplied by the translation agent.]",
-  "mood.minor_pentacles_03": "[Placeholder: library text for Three of Pentacles, mood. Supplied by the translation agent.]",
-  "mood.minor_pentacles_04": "[Placeholder: library text for Four of Pentacles, mood. Supplied by the translation agent.]",
-  "mood.minor_pentacles_05": "[Placeholder: library text for Five of Pentacles, mood. Supplied by the translation agent.]",
-  "mood.minor_pentacles_06": "[Placeholder: library text for Six of Pentacles, mood. Supplied by the translation agent.]",
-  "mood.minor_pentacles_07": "[Placeholder: library text for Seven of Pentacles, mood. Supplied by the translation agent.]",
-  "mood.minor_pentacles_08": "[Placeholder: library text for Eight of Pentacles, mood. Supplied by the translation agent.]",
-  "mood.minor_pentacles_09": "[Placeholder: library text for Nine of Pentacles, mood. Supplied by the translation agent.]",
-  "mood.minor_pentacles_10": "[Placeholder: library text for Ten of Pentacles, mood. Supplied by the translation agent.]",
-  "influence.major_19_sun.upright": "[Placeholder: library text for The Sun upright, influence. Supplied by the translation agent.]",
-  "influence.major_19_sun.reversed": "[Placeholder: library text for The Sun reversed, influence. Supplied by the translation agent.]",
-  "influence.major_01_magician.upright": "[Placeholder: library text for The Magician upright, influence. Supplied by the translation agent.]",
-  "influence.major_01_magician.reversed": "[Placeholder: library text for The Magician reversed, influence. Supplied by the translation agent.]",
-  "influence.major_03_empress.upright": "[Placeholder: library text for The Empress upright, influence. Supplied by the translation agent.]",
-  "influence.major_03_empress.reversed": "[Placeholder: library text for The Empress reversed, influence. Supplied by the translation agent.]",
-  "influence.major_16_tower.upright": "[Placeholder: library text for The Tower upright, influence. Supplied by the translation agent.]",
-  "influence.major_16_tower.reversed": "[Placeholder: library text for The Tower reversed, influence. Supplied by the translation agent.]",
-  "influence.major_10_wheel.upright": "[Placeholder: library text for Wheel of Fortune upright, influence. Supplied by the translation agent.]",
-  "influence.major_10_wheel.reversed": "[Placeholder: library text for Wheel of Fortune reversed, influence. Supplied by the translation agent.]",
-  "influence.major_21_world.upright": "[Placeholder: library text for The World upright, influence. Supplied by the translation agent.]",
-  "influence.major_21_world.reversed": "[Placeholder: library text for The World reversed, influence. Supplied by the translation agent.]",
-  "influence.major_00_fool.upright": "[Placeholder: library text for The Fool upright, influence. Supplied by the translation agent.]",
-  "influence.major_00_fool.reversed": "[Placeholder: library text for The Fool reversed, influence. Supplied by the translation agent.]",
-  "influence.major_12_hanged_man.upright": "[Placeholder: library text for The Hanged Man upright, influence. Supplied by the translation agent.]",
-  "influence.major_12_hanged_man.reversed": "[Placeholder: library text for The Hanged Man reversed, influence. Supplied by the translation agent.]",
-  "influence.major_20_judgement.upright": "[Placeholder: library text for Judgement upright, influence. Supplied by the translation agent.]",
-  "influence.major_20_judgement.reversed": "[Placeholder: library text for Judgement reversed, influence. Supplied by the translation agent.]",
-  "influence.major_02_high_priestess.upright": "[Placeholder: library text for The High Priestess upright, influence. Supplied by the translation agent.]",
-  "influence.major_02_high_priestess.reversed": "[Placeholder: library text for The High Priestess reversed, influence. Supplied by the translation agent.]",
-  "advice.major_04_emperor": "[Placeholder: library text for The Emperor, advice. Supplied by the translation agent.]",
-  "advice.major_05_hierophant": "[Placeholder: library text for The Hierophant, advice. Supplied by the translation agent.]",
-  "advice.major_06_lovers": "[Placeholder: library text for The Lovers, advice. Supplied by the translation agent.]",
-  "advice.major_07_chariot": "[Placeholder: library text for The Chariot, advice. Supplied by the translation agent.]",
-  "advice.major_08_strength": "[Placeholder: library text for Strength, advice. Supplied by the translation agent.]",
-  "advice.major_09_hermit": "[Placeholder: library text for The Hermit, advice. Supplied by the translation agent.]",
-  "advice.major_11_justice": "[Placeholder: library text for Justice, advice. Supplied by the translation agent.]",
-  "advice.major_13_death": "[Placeholder: library text for Death, advice. Supplied by the translation agent.]",
-  "advice.major_14_temperance": "[Placeholder: library text for Temperance, advice. Supplied by the translation agent.]",
-  "advice.major_15_devil": "[Placeholder: library text for The Devil, advice. Supplied by the translation agent.]",
-  "advice.major_17_star": "[Placeholder: library text for The Star, advice. Supplied by the translation agent.]",
-  "advice.major_18_moon": "[Placeholder: library text for The Moon, advice. Supplied by the translation agent.]",
+  "mood.w02": "[Placeholder: library text for Two of Wands, mood. Supplied by the translation agent.]",
+  "mood.w03": "[Placeholder: library text for Three of Wands, mood. Supplied by the translation agent.]",
+  "mood.w04": "[Placeholder: library text for Four of Wands, mood. Supplied by the translation agent.]",
+  "mood.w05": "[Placeholder: library text for Five of Wands, mood. Supplied by the translation agent.]",
+  "mood.w06": "[Placeholder: library text for Six of Wands, mood. Supplied by the translation agent.]",
+  "mood.w07": "[Placeholder: library text for Seven of Wands, mood. Supplied by the translation agent.]",
+  "mood.w08": "[Placeholder: library text for Eight of Wands, mood. Supplied by the translation agent.]",
+  "mood.w09": "[Placeholder: library text for Nine of Wands, mood. Supplied by the translation agent.]",
+  "mood.w10": "[Placeholder: library text for Ten of Wands, mood. Supplied by the translation agent.]",
+  "mood.c02": "[Placeholder: library text for Two of Cups, mood. Supplied by the translation agent.]",
+  "mood.c03": "[Placeholder: library text for Three of Cups, mood. Supplied by the translation agent.]",
+  "mood.c04": "[Placeholder: library text for Four of Cups, mood. Supplied by the translation agent.]",
+  "mood.c05": "[Placeholder: library text for Five of Cups, mood. Supplied by the translation agent.]",
+  "mood.c06": "[Placeholder: library text for Six of Cups, mood. Supplied by the translation agent.]",
+  "mood.c07": "[Placeholder: library text for Seven of Cups, mood. Supplied by the translation agent.]",
+  "mood.c08": "[Placeholder: library text for Eight of Cups, mood. Supplied by the translation agent.]",
+  "mood.c09": "[Placeholder: library text for Nine of Cups, mood. Supplied by the translation agent.]",
+  "mood.c10": "[Placeholder: library text for Ten of Cups, mood. Supplied by the translation agent.]",
+  "mood.s02": "[Placeholder: library text for Two of Swords, mood. Supplied by the translation agent.]",
+  "mood.s03": "[Placeholder: library text for Three of Swords, mood. Supplied by the translation agent.]",
+  "mood.s04": "[Placeholder: library text for Four of Swords, mood. Supplied by the translation agent.]",
+  "mood.s05": "[Placeholder: library text for Five of Swords, mood. Supplied by the translation agent.]",
+  "mood.s06": "[Placeholder: library text for Six of Swords, mood. Supplied by the translation agent.]",
+  "mood.s07": "[Placeholder: library text for Seven of Swords, mood. Supplied by the translation agent.]",
+  "mood.s08": "[Placeholder: library text for Eight of Swords, mood. Supplied by the translation agent.]",
+  "mood.s09": "[Placeholder: library text for Nine of Swords, mood. Supplied by the translation agent.]",
+  "mood.s10": "[Placeholder: library text for Ten of Swords, mood. Supplied by the translation agent.]",
+  "mood.p02": "[Placeholder: library text for Two of Pentacles, mood. Supplied by the translation agent.]",
+  "mood.p03": "[Placeholder: library text for Three of Pentacles, mood. Supplied by the translation agent.]",
+  "mood.p04": "[Placeholder: library text for Four of Pentacles, mood. Supplied by the translation agent.]",
+  "mood.p05": "[Placeholder: library text for Five of Pentacles, mood. Supplied by the translation agent.]",
+  "mood.p06": "[Placeholder: library text for Six of Pentacles, mood. Supplied by the translation agent.]",
+  "mood.p07": "[Placeholder: library text for Seven of Pentacles, mood. Supplied by the translation agent.]",
+  "mood.p08": "[Placeholder: library text for Eight of Pentacles, mood. Supplied by the translation agent.]",
+  "mood.p09": "[Placeholder: library text for Nine of Pentacles, mood. Supplied by the translation agent.]",
+  "mood.p10": "[Placeholder: library text for Ten of Pentacles, mood. Supplied by the translation agent.]",
+  "influence.m19.upright": "[Placeholder: library text for The Sun upright, influence. Supplied by the translation agent.]",
+  "influence.m19.reversed": "[Placeholder: library text for The Sun reversed, influence. Supplied by the translation agent.]",
+  "influence.m01.upright": "[Placeholder: library text for The Magician upright, influence. Supplied by the translation agent.]",
+  "influence.m01.reversed": "[Placeholder: library text for The Magician reversed, influence. Supplied by the translation agent.]",
+  "influence.m03.upright": "[Placeholder: library text for The Empress upright, influence. Supplied by the translation agent.]",
+  "influence.m03.reversed": "[Placeholder: library text for The Empress reversed, influence. Supplied by the translation agent.]",
+  "influence.m16.upright": "[Placeholder: library text for The Tower upright, influence. Supplied by the translation agent.]",
+  "influence.m16.reversed": "[Placeholder: library text for The Tower reversed, influence. Supplied by the translation agent.]",
+  "influence.m10.upright": "[Placeholder: library text for Wheel of Fortune upright, influence. Supplied by the translation agent.]",
+  "influence.m10.reversed": "[Placeholder: library text for Wheel of Fortune reversed, influence. Supplied by the translation agent.]",
+  "influence.m21.upright": "[Placeholder: library text for The World upright, influence. Supplied by the translation agent.]",
+  "influence.m21.reversed": "[Placeholder: library text for The World reversed, influence. Supplied by the translation agent.]",
+  "influence.m00.upright": "[Placeholder: library text for The Fool upright, influence. Supplied by the translation agent.]",
+  "influence.m00.reversed": "[Placeholder: library text for The Fool reversed, influence. Supplied by the translation agent.]",
+  "influence.m12.upright": "[Placeholder: library text for The Hanged Man upright, influence. Supplied by the translation agent.]",
+  "influence.m12.reversed": "[Placeholder: library text for The Hanged Man reversed, influence. Supplied by the translation agent.]",
+  "influence.m20.upright": "[Placeholder: library text for Judgement upright, influence. Supplied by the translation agent.]",
+  "influence.m20.reversed": "[Placeholder: library text for Judgement reversed, influence. Supplied by the translation agent.]",
+  "influence.m02.upright": "[Placeholder: library text for The High Priestess upright, influence. Supplied by the translation agent.]",
+  "influence.m02.reversed": "[Placeholder: library text for The High Priestess reversed, influence. Supplied by the translation agent.]",
+  "advice.m04": "[Placeholder: library text for The Emperor, advice. Supplied by the translation agent.]",
+  "advice.m05": "[Placeholder: library text for The Hierophant, advice. Supplied by the translation agent.]",
+  "advice.m06": "[Placeholder: library text for The Lovers, advice. Supplied by the translation agent.]",
+  "advice.m07": "[Placeholder: library text for The Chariot, advice. Supplied by the translation agent.]",
+  "advice.m08": "[Placeholder: library text for Strength, advice. Supplied by the translation agent.]",
+  "advice.m09": "[Placeholder: library text for The Hermit, advice. Supplied by the translation agent.]",
+  "advice.m11": "[Placeholder: library text for Justice, advice. Supplied by the translation agent.]",
+  "advice.m13": "[Placeholder: library text for Death, advice. Supplied by the translation agent.]",
+  "advice.m14": "[Placeholder: library text for Temperance, advice. Supplied by the translation agent.]",
+  "advice.m15": "[Placeholder: library text for The Devil, advice. Supplied by the translation agent.]",
+  "advice.m17": "[Placeholder: library text for The Star, advice. Supplied by the translation agent.]",
+  "advice.m18": "[Placeholder: library text for The Moon, advice. Supplied by the translation agent.]",
   "closing.love": "[Placeholder: library text for closing advice, love. Supplied by the translation agent.]",
   "closing.family": "[Placeholder: library text for closing advice, family. Supplied by the translation agent.]",
   "closing.money": "[Placeholder: library text for closing advice, money. Supplied by the translation agent.]",
   "closing.health": "[Placeholder: library text for closing advice, health. Supplied by the translation agent.]",
   "closing.growth": "[Placeholder: library text for closing advice, growth. Supplied by the translation agent.]",
-  "mood.minor_cups_03.family": "You may feel a quiet joy around the people closest to you. A small moment together, a meal or a call, can mean more than usual today.",
-  "influence.major_03_empress.upright.family": "Venus brings warmth to your family life. Your care is felt, even when no one says it. This is a good day to be gentle with yourself as well.",
-  "advice.major_07_chariot.family": "If something at home needs a decision, move forward calmly. You don't need to control everything, only to choose your direction.",
-  "closing.major_07_chariot.family": "Call or visit someone in your family today, just to listen."
+  "mood.c03.family": "You may feel a quiet joy around the people closest to you. A small moment together, a meal or a call, can mean more than usual today.",
+  "influence.m03.upright.family": "Venus brings warmth to your family life. Your care is felt, even when no one says it. This is a good day to be gentle with yourself as well.",
+  "advice.m07.family": "If something at home needs a decision, move forward calmly. You don't need to control everything, only to choose your direction.",
+  "closing.m07.family": "Call or visit someone in your family today, just to listen."
  },
  "openings": {
   "love": [

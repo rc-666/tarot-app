@@ -11,20 +11,20 @@ export const SIGNS = [
 ] as const;
 export type Sign = typeof SIGNS[number];
 
-/** Major arcana card id for each sign (Golden Dawn). */
+/** Major arcana card id for each sign (Golden Dawn). Ids match the deck (card-deck-spec.md): m00–m21, w/c/s/p01–14. */
 export const SIGN_CARD: Record<Sign, string> = {
-  aries: "major_04_emperor",
-  taurus: "major_05_hierophant",
-  gemini: "major_06_lovers",
-  cancer: "major_07_chariot",
-  leo: "major_08_strength",
-  virgo: "major_09_hermit",
-  libra: "major_11_justice",
-  scorpio: "major_13_death",
-  sagittarius: "major_14_temperance",
-  capricorn: "major_15_devil",
-  aquarius: "major_17_star",
-  pisces: "major_18_moon",
+  aries: "m04",
+  taurus: "m05",
+  gemini: "m06",
+  cancer: "m07",
+  leo: "m08",
+  virgo: "m09",
+  libra: "m11",
+  scorpio: "m13",
+  sagittarius: "m14",
+  capricorn: "m15",
+  aquarius: "m17",
+  pisces: "m18",
 };
 
 export const PLANETS = [
@@ -34,15 +34,15 @@ export type Planet = typeof PLANETS[number];
 
 /** Major arcana card id for each planet (Golden Dawn; modern outer planets). */
 export const PLANET_CARD: Record<Planet, string> = {
-  sun: "major_19_sun",
-  mercury: "major_01_magician",
-  venus: "major_03_empress",
-  mars: "major_16_tower",
-  jupiter: "major_10_wheel",
-  saturn: "major_21_world",
-  uranus: "major_00_fool",
-  neptune: "major_12_hanged_man",
-  pluto: "major_20_judgement",
+  sun: "m19",
+  mercury: "m01",
+  venus: "m03",
+  mars: "m16",
+  jupiter: "m10",
+  saturn: "m21",
+  uranus: "m00",
+  neptune: "m12",
+  pluto: "m20",
 };
 
 /** Traditional ruler, used when no aspect is within orb. */
@@ -66,7 +66,7 @@ export function decanCard(decan: number): { id: string; suit: string; number: nu
   const modality = sign % 3; // 0 cardinal, 1 fixed, 2 mutable
   const suit = ELEMENT_SUIT[sign % 4];
   const number = 2 + modality * 3 + third;
-  return { id: `minor_${suit}_${String(number).padStart(2, "0")}`, suit, number };
+  return { id: `${suit[0]}${String(number).padStart(2, "0")}`, suit, number }; // deck id, e.g. c03
 }
 
 export function signOf(lon: number): Sign {
@@ -165,7 +165,7 @@ export function strongestTransit(
     return rest;
   }
   const ruler = SIGN_RULER[fallbackSign];
-  const card = ruler === "moon" ? "major_02_high_priestess" : PLANET_CARD[ruler];
+  const card = ruler === "moon" ? "m02" : PLANET_CARD[ruler];
   return { planet: ruler, card, reversed: false, aspect: null, orb: null, target: "sun" };
 }
 

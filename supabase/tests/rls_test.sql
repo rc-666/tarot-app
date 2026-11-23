@@ -1,8 +1,8 @@
 \set ON_ERROR_STOP 0
 insert into auth.users values ('11111111-1111-1111-1111-111111111111'),('22222222-2222-2222-2222-222222222222');
-insert into public.daily_cards values ('2026-11-22','America/Sao_Paulo','leo','venus','major_03_empress',false,'trine','major_07_chariot','cancer',now());
-insert into public.mood_shifts values ('2026-11-22T10:00:00Z',10,'minor_cups_03','cancer');
-insert into public.user_daily_cards values ('22222222-2222-2222-2222-222222222222','2026-11-22','mars','major_16_tower',true,'square','major_07_chariot','cancer',now());
+insert into public.daily_cards values ('2026-11-22','America/Sao_Paulo','leo','venus','m03',false,'trine','m07','cancer',now());
+insert into public.mood_shifts values ('2026-11-22T10:00:00Z',10,'c03','cancer');
+insert into public.user_daily_cards values ('22222222-2222-2222-2222-222222222222','2026-11-22','mars','m16',true,'square','m07','cancer',now());
 
 -- user 1
 set role authenticated; select set_config('request.jwt.claim.sub','11111111-1111-1111-1111-111111111111',false), set_config('request.jwt.claim.role','authenticated',false);

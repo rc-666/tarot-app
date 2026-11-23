@@ -4,76 +4,90 @@ import 'package:flutter/material.dart';
 
 import '../../theme/app_theme.dart';
 
-/// Static card face. Art comes from `assets/cards/<id>.webp` (Rider–Waite 1909 scans, to be supplied);
-/// until then a placeholder frame is drawn, as in the lo-fi designs.
+/// One deck card (card-deck-spec.md): art + gold frame + live text, on a 240 × 403 design grid.
+/// Face down when [cardId] is null. Below 120 dp wide it uses the plain frame and no text on the
+/// card; the caller shows the name as UI text under it. Reversed turns only the art.
 class CardFace extends StatelessWidget {
-  const CardFace({super.key, required this.width, this.cardId, this.name, this.reversed = false, this.showName = true});
+  const CardFace({super.key, required this.width, this.cardId, this.name, this.reversed = false});
   final double width;
-  final String? cardId; // null = face down
-  final String? name;
+  final String? cardId; // deck id (m19, c03, ...); null = face down
+  final String? name; // translated card name; shown on full-size cards as "THE SUN."
   final bool reversed;
-  final bool showName;
+
+  static const _w = 240.0, _h = 403.0;
+  static bool isThumb(double width) => width < 120;
+
+  /// Images the reveal needs, decoded ahead so the flip never waits (spec: precacheImage).
+  static Future<void> precache(BuildContext context, Iterable<String> ids, double width) {
+    final thumb = isThumb(width);
+    final px = (192 * width / _w * MediaQuery.devicePixelRatioOf(context)).round(); // same size the card decodes
+    return Future.wait([
+      for (final id in ids) precacheImage(ResizeImage(AssetImage('assets/deck/art/$id.webp'), width: px), context),
+      precacheImage(AssetImage(thumb ? 'assets/deck/frame/frame_thumb.png' : 'assets/deck/frame/frame.png'), context),
+      precacheImage(AssetImage(thumb ? 'assets/deck/back/back_thumb.webp' : 'assets/deck/back/back.webp'), context),
+    ]);
+  }
 
   @override
   Widget build(BuildContext context) {
     final size = AppSize.card(width);
-    final faceDown = cardId == null;
-    return Container(
+    final thumb = isThumb(width);
+    final id = cardId;
+    if (id == null) {
+      return Image.asset(thumb ? 'assets/deck/back/back_thumb.webp' : 'assets/deck/back/back.webp',
+          width: size.width, height: size.height, fit: BoxFit.fill);
+    }
+    final k = size.width / _w; // design unit -> dp
+    final dpr = MediaQuery.devicePixelRatioOf(context);
+    Widget art = Image.asset('assets/deck/art/$id.webp', fit: BoxFit.fill, cacheWidth: (192 * k * dpr).round());
+    if (reversed) art = RotatedBox(quarterTurns: 2, child: art);
+    final numeral = _numeral(id);
+    return SizedBox(
       width: size.width,
       height: size.height,
-      decoration: BoxDecoration(
-        color: AppColors.surface,
-        border: Border.all(color: AppColors.primary, width: 1),
-        borderRadius: BorderRadius.circular(AppRadius.card),
-      ),
-      padding: const EdgeInsets.all(5),
-      child: faceDown ? _back() : _front(size),
+      child: Stack(children: [
+        Positioned(left: 24 * k, top: 52 * k, width: 192 * k, height: 298 * k, child: art),
+        Positioned.fill(
+          child: Image.asset(thumb ? 'assets/deck/frame/frame_thumb.png' : 'assets/deck/frame/frame.png', fit: BoxFit.fill),
+        ),
+        if (!thumb && numeral.isNotEmpty)
+          Positioned(left: 0, right: 0, top: 22 * k, height: 20 * k, child: _text(numeral, 17 * k, 1 * k, const Color(0xFF3A2412))),
+        if (!thumb && name != null)
+          Positioned(
+            left: 34 * k, // max width 172
+            right: 34 * k,
+            top: 359 * k,
+            height: 18 * k,
+            child: _text('${name!.toUpperCase()}.', 15 * k, 2 * k, const Color(0xFFE6CB98)),
+          ),
+      ]),
     );
   }
 
-  Widget _back() => Container(
-        decoration: BoxDecoration(border: Border.all(color: AppColors.divider), borderRadius: BorderRadius.circular(3)),
-        alignment: Alignment.center,
-        child: Icon(Icons.nightlight_round, color: AppColors.primary, size: width * 0.16), // placeholder crescent
+  static Widget _text(String t, double size, double spacing, Color color) => FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Text(t,
+            maxLines: 1,
+            textScaler: TextScaler.noScaling, // part of the card art; the card itself scales
+            style: TextStyle(fontFamily: 'Playfair Display', fontWeight: FontWeight.w600, fontSize: size, letterSpacing: spacing, color: color, height: 1)),
       );
 
-  Widget _front(Size size) {
-    final art = Image.asset(
-      'assets/cards/$cardId.webp',
-      fit: BoxFit.cover,
-      cacheWidth: (width * 3).round(), // keeps memory low on 2 GB phones
-      errorBuilder: (_, __, ___) => CustomPaint(painter: _PlaceholderArt(), child: const SizedBox.expand()),
-    );
-    return Column(children: [
-      Expanded(
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(2),
-          child: reversed ? Transform.rotate(angle: math.pi, child: art) : art,
-        ),
-      ),
-      if (showName && name != null && width >= 80)
-        Padding(
-          padding: const EdgeInsets.only(top: 4),
-          child: Text(name!, maxLines: 2, textAlign: TextAlign.center, overflow: TextOverflow.ellipsis,
-              style: AppText.caption.copyWith(color: AppColors.textPrimary, height: 1.15)),
-        ),
-    ]);
+  /// Roman numeral above the arch: majors 0–XXI, pips I–X, courts none.
+  static String _numeral(String id) {
+    final n = int.parse(id.substring(1));
+    if (id[0] != 'm' && n > 10) return '';
+    if (n == 0) return '0';
+    const r = [(10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')];
+    final b = StringBuffer();
+    var v = n;
+    for (final (val, sym) in r) {
+      while (v >= val) {
+        b.write(sym);
+        v -= val;
+      }
+    }
+    return b.toString();
   }
-}
-
-class _PlaceholderArt extends CustomPainter {
-  @override
-  void paint(Canvas c, Size s) {
-    c.drawRect(Offset.zero & s, Paint()..color = AppColors.divider);
-    final p = Paint()
-      ..color = AppColors.textSecondary.withValues(alpha: 0.5)
-      ..strokeWidth = 1;
-    c.drawLine(Offset.zero, Offset(s.width, s.height), p);
-    c.drawLine(Offset(s.width, 0), Offset(0, s.height), p);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
 /// The reveal (spec 5): lift 4 dp (120 ms) → flip on Y with perspective, face swaps at 90° (500 ms)
@@ -173,7 +187,7 @@ class _RevealCardState extends State<RevealCard> with SingleTickerProviderStateM
             Widget face = CardFace(
               width: widget.width,
               cardId: showFront ? widget.cardId : null,
-              name: showFront && _c.value > 0.99 ? widget.name : null,
+              name: widget.name,
               reversed: widget.reversed,
             );
             if (showFront) face = Transform(alignment: Alignment.center, transform: Matrix4.rotationY(math.pi), child: face);

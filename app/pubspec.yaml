@@ -39,7 +39,9 @@ flutter:
   assets:
     - assets/library/
     - assets/places/
-    - assets/cards/
+    - assets/deck/art/
+    - assets/deck/frame/
+    - assets/deck/back/
     - assets/demo/
   fonts:
     - family: Playfair Display

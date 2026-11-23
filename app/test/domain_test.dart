@@ -13,7 +13,7 @@ void main() {
     expect(sunSignFor(DateTime(1980, 1, 20)), 'aquarius');
     expect(sunSignFor(DateTime(1980, 12, 25)), 'capricorn');
     expect(sunSignFor(DateTime(1980, 3, 21)), 'aries');
-    expect(signCard['leo'], 'major_08_strength');
+    expect(signCard['leo'], 'm08');
   });
 
   test('days in month: Feb 29 only in leap years', () {
@@ -65,17 +65,17 @@ void main() {
     final lib = Library.fromJson({
       'version': 1,
       'language': 'en',
-      'cards': {'minor_cups_03': {'name': 'Three of Cups'}},
-      'texts': {'mood.minor_cups_03': 'generic', 'mood.minor_cups_03.family': 'family text', 'closing.family': 'close'},
+      'cards': {'c03': {'name': 'Three of Cups'}},
+      'texts': {'mood.c03': 'generic', 'mood.c03.family': 'family text', 'closing.family': 'close'},
       'openings': {'family': ['a', 'b', 'c']},
     });
     final today = TodayCards(
       day: '2026-11-22',
-      mood: MoodShift(at: DateTime.utc(2026, 11, 22), decan: 10, card: 'minor_cups_03', moonSign: 'cancer'),
+      mood: MoodShift(at: DateTime.utc(2026, 11, 22), decan: 10, card: 'c03', moonSign: 'cancer'),
       moodShiftedToday: false,
       fixed: const DayCards(
-        day: '2026-11-22', influencePlanet: 'venus', influenceCard: 'major_03_empress', influenceReversed: false,
-        influenceAspect: 'trine', adviceCard: 'major_07_chariot', moonSign: 'cancer'),
+        day: '2026-11-22', influencePlanet: 'venus', influenceCard: 'm03', influenceReversed: false,
+        influenceAspect: 'trine', adviceCard: 'm07', moonSign: 'cancer'),
     );
     final a = assembleReading(lib, today, 'family');
     final b = assembleReading(lib, today, 'family');

@@ -8,18 +8,18 @@ import {
 } from "../_shared/sky.ts";
 
 test("decan cards follow Golden Dawn order", () => {
-  assert.equal(decanCard(0).id, "minor_wands_02");      // Aries I
-  assert.equal(decanCard(10).id, "minor_cups_03");      // Cancer II (design example: Moon mid-Cancer -> Three of Cups)
-  assert.equal(decanCard(12).id, "minor_wands_05");     // Leo I
-  assert.equal(decanCard(27).id, "minor_pentacles_02"); // Capricorn I
-  assert.equal(decanCard(30).id, "minor_swords_05");    // Aquarius I
-  assert.equal(decanCard(35).id, "minor_cups_10");      // Pisces III
+  assert.equal(decanCard(0).id, "w02");      // Aries I
+  assert.equal(decanCard(10).id, "c03");      // Cancer II (design example: Moon mid-Cancer -> Three of Cups)
+  assert.equal(decanCard(12).id, "w05");     // Leo I
+  assert.equal(decanCard(27).id, "p02"); // Capricorn I
+  assert.equal(decanCard(30).id, "s05");    // Aquarius I
+  assert.equal(decanCard(35).id, "c10");      // Pisces III
   const ids = new Set(Array.from({ length: 36 }, (_, i) => decanCard(i).id));
   assert.equal(ids.size, 36, "each minor 2-10 of each suit used exactly once");
 });
 
 test("design example: Moon in Cancer -> The Chariot", () => {
-  assert.equal(SIGN_CARD[signOf(100)], "major_07_chariot");
+  assert.equal(SIGN_CARD[signOf(100)], "m07");
   assert.equal(decanOf(359.99), 35);
   assert.equal(decanOf(-0.5), 35);
 });
@@ -97,7 +97,7 @@ test("influence rule: upright/reversed and fallback", () => {
   const t = new Date("2026-11-22T09:00:00Z");
   for (const s of SIGNS) {
     const inf = strongestTransit(t, { sun: signMidpoint(s) }, s);
-    assert.ok(Object.values(PLANET_CARD).includes(inf.card) || inf.card === "major_02_high_priestess");
+    assert.ok(Object.values(PLANET_CARD).includes(inf.card) || inf.card === "m02");
     if (inf.aspect === "trine" || inf.aspect === "sextile") assert.equal(inf.reversed, false);
     if (inf.aspect === "square" || inf.aspect === "opposition") assert.equal(inf.reversed, true);
     if (inf.aspect === null) assert.equal(inf.reversed, false);

@@ -201,7 +201,7 @@ class _CardsRow extends ConsumerWidget {
             // 4b: tap any card -> 5h reopened, no animation
             onTap: revealed ? () => context.push('/reading/today') : null,
             child: Column(children: [
-              CardFace(width: w, cardId: revealed ? ids[i] : null, reversed: i == 1 && c.fixed.influenceReversed, showName: false),
+              CardFace(width: w, cardId: revealed ? ids[i] : null, reversed: i == 1 && c.fixed.influenceReversed),
               if (revealed) ...[
                 const SizedBox(height: AppSpace.xs),
                 Text(lib.cardName(ids[i]), textAlign: TextAlign.center, style: AppText.body.copyWith(color: AppColors.textSecondary)),

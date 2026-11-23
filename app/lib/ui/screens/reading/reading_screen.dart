@@ -133,7 +133,12 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
     if (!cards.hasValue || !lib.hasValue) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
-    _frozen ??= cards.value!;
+    if (_frozen == null) {
+      _frozen = cards.value!;
+      final f = _frozen!;
+      final w = ((MediaQuery.sizeOf(context).width - 2 * AppSpace.screen - 2 * AppSpace.xs) / 3).clamp(AppSize.cardRevealMin, AppSize.cardReveal);
+      CardFace.precache(context, [f.mood.card, f.fixed.influenceCard, f.fixed.adviceCard], w);
+    }
     final today = _frozen!;
     final library = lib.value!;
     final topic = _topic;
@@ -211,6 +216,9 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
                           ),
                         ),
                         const SizedBox(height: AppSpace.xs),
+                        if (CardFace.isThumb(cardW) && _revealed[i])
+                          Text(library.cardName(positions[i].card),
+                              textAlign: TextAlign.center, style: AppText.caption.copyWith(color: AppColors.textPrimary)),
                         Text(positions[i].short, style: AppText.cardLabel, maxLines: 1, overflow: TextOverflow.visible, softWrap: false),
                         if (positions[i].reversed && _revealed[i])
                           Text(t.reversed, style: AppText.caption.copyWith(color: AppColors.primary)),
@@ -332,7 +340,7 @@ class _Section extends StatelessWidget {
       decoration: const BoxDecoration(border: Border(top: BorderSide(color: AppColors.divider))),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          CardFace(width: AppSize.cardSection, cardId: cardId, reversed: reversed, showName: false),
+          CardFace(width: AppSize.cardSection, cardId: cardId, reversed: reversed),
           const SizedBox(width: AppSpace.sm),
           Expanded(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

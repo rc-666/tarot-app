@@ -22,8 +22,8 @@ class AppSpace {
 }
 
 class AppSize {
-  /// Card height / width. Decision 2026-11-22: Rider–Waite art, ~1:1.72 (design token update pending; was 1.68).
-  static const cardAspect = 1.72;
+  /// Card height / width: the deck's 240 × 403 card (card-deck-spec.md), i.e. 100:168.
+  static const cardAspect = 403 / 240;
   static Size card(double width) => Size(width, (width * cardAspect).roundToDouble());
   static const cardReveal = 100.0, cardRevealMin = 88.0, cardHome = 92.0, cardThumb = 64.0, cardSection = 44.0, cardReward = 150.0;
   static const button = 56.0, topBar = 56.0, minTap = 48.0;

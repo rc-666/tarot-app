@@ -10,18 +10,18 @@ const topics = ['love', 'family', 'money', 'health', 'growth'];
 
 /// Major card for each sign (Golden Dawn). Same table as SIGN_CARD on the server.
 const signCard = {
-  'aries': 'major_04_emperor',
-  'taurus': 'major_05_hierophant',
-  'gemini': 'major_06_lovers',
-  'cancer': 'major_07_chariot',
-  'leo': 'major_08_strength',
-  'virgo': 'major_09_hermit',
-  'libra': 'major_11_justice',
-  'scorpio': 'major_13_death',
-  'sagittarius': 'major_14_temperance',
-  'capricorn': 'major_15_devil',
-  'aquarius': 'major_17_star',
-  'pisces': 'major_18_moon',
+  'aries': 'm04',
+  'taurus': 'm05',
+  'gemini': 'm06',
+  'cancer': 'm07',
+  'leo': 'm08',
+  'virgo': 'm09',
+  'libra': 'm11',
+  'scorpio': 'm13',
+  'sagittarius': 'm14',
+  'capricorn': 'm15',
+  'aquarius': 'm17',
+  'pisces': 'm18',
 };
 
 /// Sun sign from a birth date, using the usual date ranges. Cusp days can be off by one;
