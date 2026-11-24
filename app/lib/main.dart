@@ -55,7 +55,7 @@ class TarotApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final lang = ref.watch(languageProvider);
     return MaterialApp.router(
-      onGenerateTitle: (_) => 'App name', // placeholder until the app name is decided
+      onGenerateTitle: (_) => 'Céu Tarô',
       debugShowCheckedModeBanner: false,
       theme: buildAppTheme(),
       themeMode: ThemeMode.dark,

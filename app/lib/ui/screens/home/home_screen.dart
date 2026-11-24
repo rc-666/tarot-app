@@ -105,7 +105,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             : now.hour < 18
                 ? t.goodAfternoon(name)
                 : t.goodEvening(name);
-    final nextAt = DateFormat.Hm(locale).format(DateTime(2000, 1, 1, morningHour));
+    final nextAt = clockTime(DateTime(2000, 1, 1, morningHour), locale);
 
     return Scaffold(
       body: Column(children: [
@@ -141,7 +141,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   _CardsRow(revealed: reading != null),
                   if (reading != null && cards.value!.moodShiftedToday) ...[
                     const SizedBox(height: AppSpace.sm),
-                    Text(t.moodShiftedAt(DateFormat.Hm(locale).format(cards.value!.mood.at.toLocal())),
+                    Text(t.moodShiftedAt(clockTime(cards.value!.mood.at.toLocal(), locale)),
                         style: AppText.caption.copyWith(color: AppColors.primary)),
                   ],
                   const SizedBox(height: AppSpace.lg),

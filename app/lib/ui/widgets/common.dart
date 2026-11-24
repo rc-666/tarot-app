@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../l10n/app_localizations.dart';
 import '../../theme/app_theme.dart';
 
 AppLocalizations l10n(BuildContext c) => AppLocalizations.of(c);
+
+/// Clock time: Brazilian style "6h" / "14h20" in Portuguese (translator brief), "06:00" otherwise.
+String clockTime(DateTime t, String locale) {
+  if (!locale.startsWith('pt')) return DateFormat.Hm(locale).format(t);
+  return t.minute == 0 ? '${t.hour}h' : '${t.hour}h${t.minute.toString().padLeft(2, '0')}';
+}
 
 String signName(AppLocalizations t, String s) => switch (s) {
       'aries' => t.sign_aries,

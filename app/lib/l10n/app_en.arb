@@ -59,7 +59,7 @@
   "revealedCount": "{n} of 3 revealed",
   "@revealedCount": { "placeholders": { "n": { "type": "int" } } },
   "posMoodShort": "Mood",
-  "posInfluenceShort": "Influence",
+  "posInfluenceShort": "At play",
   "posAdviceShort": "Advice",
   "posMood": "Your mood today",
   "posInfluence": "What's at play",

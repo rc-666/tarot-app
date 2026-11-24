@@ -254,7 +254,7 @@ class _ReadingScreenState extends ConsumerState<ReadingScreen> {
                       reversed: reading.sections[i].reversed,
                       paragraph: reading.sections[i].paragraph,
                       note: i == 0 && today.moodShiftedToday && widget.mode == ReadingMode.reopen
-                          ? t.moodShiftedAt(DateFormat.Hm().format(today.mood.at.toLocal()))
+                          ? t.moodShiftedAt(clockTime(today.mood.at.toLocal(), Localizations.localeOf(context).toLanguageTag()))
                           : null,
                     ),
                   _AdvicePanel(title: t.todaysAdvice, text: reading.todaysAdvice),

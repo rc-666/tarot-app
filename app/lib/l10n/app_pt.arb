@@ -79,7 +79,7 @@
     }
   },
   "posMoodShort": "Humor",
-  "posInfluenceShort": "Influência",
+  "posInfluenceShort": "Em jogo",
   "posAdviceShort": "Conselho",
   "posMood": "Seu humor hoje",
   "posInfluence": "O que está em jogo",
@@ -307,5 +307,78 @@
         "type": "String"
       }
     }
-  }
+  },
+  "influenceConjunct": "{planet} está perto do seu signo hoje",
+  "@influenceConjunct": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "influenceRuler": "{planet} rege o seu signo",
+  "@influenceRuler": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "networkError": "Verifique sua internet e tente de novo.",
+  "@networkError": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "sendAgainIn": "Reenviar em {seconds} s",
+  "@sendAgainIn": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "linkExpiredTitle": "Este link expirou",
+  "@linkExpiredTitle": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "linkExpiredBody": "Os links de redefinição funcionam uma vez só e por pouco tempo.",
+  "@linkExpiredBody": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "sendNewLink": "Enviar um novo link",
+  "@sendNewLink": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "goodAfternoon": "Boa tarde, {name}",
+  "@goodAfternoon": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "goodEvening": "Boa noite, {name}",
+  "@goodEvening": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "tipReminders": "Toda manhã o céu traz 3 cartas novas para você. Vamos lembrar você às {time} e quando seu humor mudar.",
+  "@tipReminders": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "remindersBody": "Vamos enviar uma mensagem curta quando suas cartas novas estiverem prontas e quando seu humor mudar.",
+  "@remindersBody": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "notifMoodTitle": "Seu humor mudou",
+  "@notifMoodTitle": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "notifMoodBody": "Toque para ver sua nova carta de humor.",
+  "@notifMoodBody": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "notifChannelName": "Cartas do dia",
+  "@notifChannelName": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "morningCards": "Cartas da manhã",
+  "@morningCards": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "moodShifts": "Mudanças de humor",
+  "@moodShifts": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "deleting": "Excluindo…",
+  "@deleting": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "deleteFailed": "Não conseguimos excluir sua conta. Verifique sua internet e tente de novo.",
+  "@deleteFailed": {
+    "description": "[PROVISIONAL] written by the developer, English copy not final; translator to confirm"
+  },
+  "@@x-note": " 18 strings marked [PROVISIONAL] were added by the developer so Portuguese users do not see English; the translator should confirm them."
 }
